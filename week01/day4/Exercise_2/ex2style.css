@@ -1,0 +1,35 @@
+.boxes{
+    font-size: 30px;
+    font-family: sans-serif;
+    color: white;
+    padding: 0;
+    text-align: center;
+}
+p{
+    width: 350px;
+    height: 78px;
+    margin: 0;
+    padding: 0;
+    padding-top: 50px;
+    border: 16px solid #4285f4;
+
+
+}
+.north{
+    background-color: #e67676;
+    border-bottom: 0;
+}
+.east{
+    background-color: #f2f062;
+    border-top: 0;
+    border-bottom: 0;
+}
+.south{
+    background-color: #a9e6e6;
+    border-top: 0;
+    border-bottom: 0;
+}
+.west{
+    background-color: #7692e4;
+    border-top: 0;
+}

@@ -1,0 +1,32 @@
+.allboxes {
+    font-style: courier;
+    width: 250px;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    
+}
+.red {
+    background-color: #FF6347;
+    padding: 20px;
+    background-image: url(../duck.png);
+    background-size: 90px;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+.purple {
+    background-color: #643579;
+    padding: 20px;
+    background-image: url(../duck.png);
+    background-size: 180px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.grey {
+    background-color: #808080;
+    padding: 20px;
+    background-image: url(../duck.png);
+    background-repeat: no-repeat;
+    background-size: 90px;
+    background-position: bottom right;
+}

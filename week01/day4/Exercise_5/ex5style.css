@@ -1,0 +1,21 @@
+h1 {
+    color: blue;
+}
+h2 {
+    color: orange;
+}
+ul {
+    color: blue;
+}
+.nestedol, .nestedul {
+    color: black;
+}
+.apple {
+    color: red;
+}
+.nestedul li {
+    list-style: disc;
+}
+.list {
+    list-style: square;
+}

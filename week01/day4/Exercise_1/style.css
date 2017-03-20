@@ -1,0 +1,16 @@
+.class{
+    font-size: 36px;
+    font-family: sans-serif;
+    padding: 0;
+}
+p{
+    width: 331px;
+    height: 116px;
+    border: 6px solid rgb(125, 206, 148);
+    color: rgb(0, 85, 102);
+    margin: 16px;
+    background-color: rgb(14, 145, 161);
+    padding-left: 17px;
+    padding-top: 17px;
+
+}
