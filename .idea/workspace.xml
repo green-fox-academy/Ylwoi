@@ -697,7 +697,13 @@
       <option name="project" value="LOCAL" />
       <updated>1490116680550</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="LOT of files add">
+      <created>1490116764676</created>
+      <option name="number" value="00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1490116764676</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -742,7 +748,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="introduce-yourself.py added" />
     <MESSAGE value="two-numbers.py added" />
     <MESSAGE value="humpty-dumpty.py fixed" />
     <MESSAGE value="coding-hours.py added" />
@@ -767,7 +772,8 @@
     <MESSAGE value="print-even.py fixed really done" />
     <MESSAGE value="count-from-to.py added done" />
     <MESSAGE value="multiplication-table.py added done" />
-    <option name="LAST_COMMIT_MESSAGE" value="multiplication-table.py added done" />
+    <MESSAGE value="LOT of files add" />
+    <option name="LAST_COMMIT_MESSAGE" value="LOT of files add" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
