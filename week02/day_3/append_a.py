@@ -10,5 +10,4 @@ am = 'kuty'
 def appendA(text):
     text += 'a'
     return text
-
 print(appendA(am))
