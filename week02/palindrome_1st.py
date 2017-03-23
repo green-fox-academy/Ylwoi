@@ -1,5 +1,9 @@
 __author__ = 'ylwoi'
 
+print("**********************\n"
+      "The Palindrome Creator\n"
+      "**********************\n")
+
 def word_reverse(word):
     word = word[::-1]
     return word
