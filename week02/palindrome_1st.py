@@ -13,10 +13,23 @@ def is_palindrome(word):
 
 def create_palindrome(word):
     if is_palindrome(word) == True:
-        print("It is already a palindrome")
+        print("It is already a palindrome", end="")
+        return ""
     else:
         word += word_reverse(word)
     return word
 
-output = create_palindrome("cica")
-print(output)
+
+while True:
+    user_word = input("Enter a word: ")
+    palindrome_word = create_palindrome(user_word)
+    print(palindrome_word)
+    while True:
+        question = input("Do you want to create another palindrome? ")
+        if question.lower() == 'no':
+            print("Bye!")
+            quit()
+        if question.lower() == 'yes':
+            break
+        else:
+            print("I speak only English so please enter 'yes' or 'no' :)")
