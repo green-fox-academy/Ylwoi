@@ -9,20 +9,13 @@ def word_reverse(word):
     return word
 
 
-def is_palindrome(word):
-    if word == word_reverse(word):
-        return True
-    else:
-        return False
-
 def create_palindrome(word):
-    if is_palindrome(word) == True:
+    if word_reverse(word) == word:
         print("It is already a palindrome", end="")
         return ""
     else:
         word += word_reverse(word)
     return word
-
 
 while True:
     user_word = input("Enter a word: ")
