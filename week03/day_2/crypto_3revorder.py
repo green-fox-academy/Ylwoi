@@ -5,5 +5,6 @@ def crypto(filename):
     list = my_file.readlines()
     for line in list[::-1]:
         print(line)
+    my_file.close()
 
 crypto('reversed-order.txt')
