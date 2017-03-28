@@ -17,5 +17,6 @@ def decrypt(filename):
             else:
                 encoded = ord(j)-1
                 print(chr(encoded), end="")
+    my_file.close()
 
 decrypt("encoded-lines.txt")
