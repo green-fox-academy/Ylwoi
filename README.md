@@ -1,2 +1,3 @@
 # Ylwoi
-[This is a link for Ylwoi's Rep](https://github.com/greenfox-academy/Ylwoi)
+[This is a link for my profile overview:](https://github.com/Ylwoi)
+[Greenfox Academy repositories:](https://github.com/greenfox-academy)
