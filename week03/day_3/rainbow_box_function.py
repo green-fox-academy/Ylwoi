@@ -13,7 +13,7 @@ canvas.pack()
 # and draws a square of that size and color to the center of the canvas.
 # create a loop that fills the canvas with rainbow colored squares.
 
-box_size = 100
+box_size = 150
 color = ["red", "orange", "yellow", "green", "blue", "violet"]
 n = int((150-box_size/2)/8)
 
