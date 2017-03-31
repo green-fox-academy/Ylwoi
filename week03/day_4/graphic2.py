@@ -1,13 +1,11 @@
 __author__ = 'ylwoi'
 
 from tkinter import *
-import time
 
 root = Tk()
 canvas = Canvas(root, width='600', height='600')
 canvas.pack()
 
-#canvas.create_polygon( outline='black', width='1')
 fv = (3**0.5)/2
 
 def draw_hexagon(x, y, size):

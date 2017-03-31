@@ -14,6 +14,8 @@ def draw_square(x, y, size):
 
 def recursive(x, y, size):
     draw_square(x, y, size)
+    time.sleep(0.1)
+    canvas.update()
     if size > 5:
         recursive(x+1/3*size, y, size/3)
         recursive(x, y+1/3*size, size/3)
