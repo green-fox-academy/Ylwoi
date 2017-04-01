@@ -4,6 +4,7 @@ from tkinter import *
 import time
 
 root = Tk()
+root.attributes("-fullscreen", True)
 canvas = Canvas(root, width='600', height='600')
 canvas.pack()
 
@@ -15,6 +16,8 @@ def draw_hexagon(x, y, size):
 
 def recursive(x, y, size):
     draw_hexagon(x, y, size)
+    time.sleep(0.1)
+    canvas.update()
     if size > 5:
         recursive(x-size*fv/1.3, y, size/3)
         recursive(x-size*fv/2.6, y-size*0.579, size/3)

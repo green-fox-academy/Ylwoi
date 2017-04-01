@@ -11,7 +11,8 @@ def line_counter(filename):
         for line in list:
             count += 1
         print(count)
+        my_file.close()
     except FileNotFoundError:
-        print("zero")
+        print("The file not exists or maybe the path is wrong.")
 
 line_counter("empty3.txt")
