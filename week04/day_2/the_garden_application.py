@@ -14,6 +14,17 @@ class Garden():
         for i in self.trees:
             if i[1] < 10:
                 i[1] += water_amount * 0.4
+        print('Watering with', amount)
+        for i in self.flowers:
+            if i[1] < 5:
+                print('The', i[0], 'Flower needs water')
+            else:
+                print('The', i[0], 'Flower doesnt need water')
+        for i in self.trees:
+            if i[1] < 10:
+                print('The', i[0], 'Tree needs water')
+            else:
+                print('The', i[0], 'Tree doesnt need water')
 
 
     def count(self):
@@ -49,5 +60,9 @@ tree1 = Tree('purple')
 tree2 = Tree('orange')
 
 garden.waters(40)
+print(garden.trees)
+print(garden.flowers)
+
+garden.waters(70)
 print(garden.trees)
 print(garden.flowers)
