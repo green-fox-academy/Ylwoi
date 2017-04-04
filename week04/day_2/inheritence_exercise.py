@@ -61,6 +61,21 @@ class Sponsor(Person):
         self.hired_students += 1
 
 
+class Lagopus():
+
+    def __init__(self, class_name):
+        self.class_name = class_name
+        self.students = []
+        self.mentors = []
+
+    def add_student(self, student):
+        self.students.append(student)
+
+    def add_mentor(self, mentor):
+        self.mentors.append(mentor)
+
+    def info(self):
+        print("Lagopus", self.class_name, "class has", len(self.students), "students and", len(self.mentors), "mentors.")
 
 """
 std_pers = Person()
@@ -68,24 +83,33 @@ vili = Person('Vilmos', 61, 'male')
 vili.introduce()
 std_pers.introduce() """
 
-"""
+
 std_student = Student()
 dexter = Student('Dexter', 20, 'male', 'Fox school')
-dexter.get_goal()
+"""dexter.get_goal()
 std_student.skip_days(3)
 dexter.introduce()
 std_student.introduce() """
 
-"""
+
 std_mentor = Mentor()
 gabor = Mentor('Gabor', 39, 'male', 'junior')
-std_mentor.get_goal()
+"""std_mentor.get_goal()
 std_mentor.introduce()
-gabor.introduce() """
+gabor.introduce()"""
 
+"""
 std_sponsor = Sponsor()
 sponsor1 = Sponsor('Joe', 36, 'male', 'Black Swan')
 std_sponsor.get_goal()
 sponsor1.hire()
 std_sponsor.introduce()
-sponsor1.introduce()
+sponsor1.introduce() """
+
+lagopus = Lagopus('Badass')
+
+lagopus.add_student(dexter)
+lagopus.add_student(std_student)
+lagopus.add_mentor(gabor)
+lagopus.add_mentor(std_mentor)
+lagopus.info()
