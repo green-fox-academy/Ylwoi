@@ -7,7 +7,7 @@ class Garden():
 
     def waters(self, amount):
         self.amount = amount
-        water_amount = amount / self.count()
+        water_amount = amount / self.number_of_plants()
         for i in self.flowers:
             if i[1] < 5:
                 i[1] += water_amount * 0.75
@@ -15,6 +15,9 @@ class Garden():
             if i[1] < 10:
                 i[1] += water_amount * 0.4
         print('Watering with', amount)
+        self.printer()
+
+    def printer(self):
         for i in self.flowers:
             if i[1] < 5:
                 print('The', i[0], 'Flower needs water')
@@ -27,7 +30,7 @@ class Garden():
                 print('The', i[0], 'Tree doesnt need water')
 
 
-    def count(self):
+    def number_of_plants(self):
         count = 0
         for i in self.flowers:
             if i[1] < 5:
