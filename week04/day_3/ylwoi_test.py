@@ -1,7 +1,7 @@
 __author__ = 'ylwoi'
 
 import unittest
-from ylwoi_work import Apples, Sum, Anagram, CountLetters, Fibonacci, Sharpie
+from ylwoi_work import Apples, Sum, Anagram, CountLetters, Fibonacci, Sharpie, Animal
 
 
 class TestApplesMethods(unittest.TestCase):
@@ -62,6 +62,28 @@ class TestSharpie(unittest.TestCase):
         sharp = Sharpie('black', 150)
         self.assertEqual(sharp.use(), 90)
 
+
+class TestAnimal(unittest.TestCase):
+    def test_init_method_hunger_and_thirst_values(self):
+        animal = Animal()
+        self.assertEqual(animal.hunger, 50)
+        self.assertEqual(animal.thirst, 50)
+
+    def test_eat_method_hunger_value(self):
+        animal = Animal()
+        animal.eat()
+        self.assertEqual(animal.hunger, 49)
+
+    def test_drink_method_thirst_value(self):
+        animal = Animal()
+        animal.drink()
+        self.assertEqual(animal.thirst, 49)
+
+    def test_play_method_hunger_and_thirst_value(self):
+        animal = Animal()
+        animal.play()
+        self.assertEqual(animal.hunger, 51)
+        self.assertEqual(animal.thirst, 51)
 
 if __name__ == '__main__':
     unittest.main()
