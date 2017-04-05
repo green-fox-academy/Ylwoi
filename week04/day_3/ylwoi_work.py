@@ -33,7 +33,7 @@ class Anagram:
 class CountLetters:
     def count_letters(self, word):
         self.word = word
-        list_word = list(sorted(self.word))
+        list_word = list(self.word)
         dictionary = {}
         for i in list_word:
             if i in dictionary:

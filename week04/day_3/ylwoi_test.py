@@ -1,7 +1,7 @@
 __author__ = 'ylwoi'
 
 import unittest
-from ylwoi_work import Apples, Sum, Anagram
+from ylwoi_work import Apples, Sum, Anagram, CountLetters
 
 
 class TestApplesMethods(unittest.TestCase):
@@ -29,6 +29,15 @@ class TestAnagram(unittest.TestCase):
     def test_anagram_if_not_anagrams(self):
         anagram = Anagram()
         self.assertFalse(anagram.anagram('balm', 'milb'))
+
+
+class TestCountLetters(unittest.TestCase):
+    def test_count_letters_one(self):
+        letter_counter = CountLetters()
+        self.assertEqual(letter_counter.count_letters('toll'), {'t': 1, 'o': 1, 'l': 2})
+    def test_count_letters_two(self):
+        letter_counter = CountLetters()
+        self.assertEqual(letter_counter.count_letters('rrrr'), {'r': 4})
 
 
 
