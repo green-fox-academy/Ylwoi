@@ -1,7 +1,7 @@
 __author__ = 'ylwoi'
 
 import unittest
-from ylwoi_work import Apples, Sum, Anagram, CountLetters
+from ylwoi_work import Apples, Sum, Anagram, CountLetters, Fibonacci
 
 
 class TestApplesMethods(unittest.TestCase):
@@ -39,6 +39,19 @@ class TestCountLetters(unittest.TestCase):
         letter_counter = CountLetters()
         self.assertEqual(letter_counter.count_letters('rrrr'), {'r': 4})
 
+
+class TestFibonacci(unittest.TestCase):
+    def test_fibonacci_method_zero(self):
+        fibo = Fibonacci()
+        self.assertEqual(fibo.fibonacci(0), 0)
+
+    def test_fibonacci_method_one(self):
+        fibo = Fibonacci()
+        self.assertEqual(fibo.fibonacci(1), 1)
+
+    def test_fibonacci_method_number(self):
+        fibo = Fibonacci()
+        self.assertEqual(fibo.fibonacci(6), 8)
 
 
 if __name__ == '__main__':
