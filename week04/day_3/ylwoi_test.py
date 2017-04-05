@@ -1,7 +1,7 @@
 __author__ = 'ylwoi'
 
 import unittest
-from ylwoi_work import Apples, Sum, Anagram, CountLetters, Fibonacci
+from ylwoi_work import Apples, Sum, Anagram, CountLetters, Fibonacci, Sharpie
 
 
 class TestApplesMethods(unittest.TestCase):
@@ -52,6 +52,15 @@ class TestFibonacci(unittest.TestCase):
     def test_fibonacci_method_number(self):
         fibo = Fibonacci()
         self.assertEqual(fibo.fibonacci(6), 8)
+
+
+class TestSharpie(unittest.TestCase):
+    def test_init(self):
+        sharp = Sharpie('black', 150)
+        self.assertEqual(sharp.ink_amount, 100)
+    def test_use(self):
+        sharp = Sharpie('black', 150)
+        self.assertEqual(sharp.use(), 90)
 
 
 if __name__ == '__main__':
