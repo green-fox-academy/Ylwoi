@@ -41,3 +41,12 @@ class CountLetters:
             else:
                 dictionary[i] = 1
         return dictionary
+
+
+class Fibonacci:
+    def fibonacci(self, n):
+        self.n = n
+        if self.n < 2:
+            return self.n
+        else:
+            return self.fibonacci(n-1) + self.fibonacci(n-2)
