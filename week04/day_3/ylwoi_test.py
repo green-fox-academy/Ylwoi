@@ -1,7 +1,7 @@
 __author__ = 'ylwoi'
 
 import unittest
-from ylwoi_work import Apples, Sum
+from ylwoi_work import Apples, Sum, Anagram
 
 
 class TestApplesMethods(unittest.TestCase):
@@ -21,6 +21,14 @@ class TestSum(unittest.TestCase):
         sum_nums = Sum()
         self.assertEqual(sum_nums.sum([]), 0)
 
+
+class TestAnagram(unittest.TestCase):
+    def test_anagram_if_anagrams(self):
+        anagram = Anagram()
+        self.assertTrue(anagram.anagram('rat', 'art'))
+    def test_anagram_if_not_anagrams(self):
+        anagram = Anagram()
+        self.assertFalse(anagram.anagram('balm', 'milb'))
 
 
 
