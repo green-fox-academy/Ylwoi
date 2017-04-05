@@ -28,3 +28,16 @@ class Anagram:
             return True
         else:
             return False
+
+
+class CountLetters:
+    def count_letters(self, word):
+        self.word = word
+        list_word = list(sorted(self.word))
+        dictionary = {}
+        for i in list_word:
+            if i in dictionary:
+                dictionary[i] += 1
+            else:
+                dictionary[i] = 1
+        return dictionary
