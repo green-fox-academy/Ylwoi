@@ -42,31 +42,43 @@ class Hero(object):
 root = Tk()
 canvas = Canvas(root, width=720, height=720)
 
+# Create a function that can be called when a key pressing happens
+class GameLogic:
+    def __init__(self):
+        canvas.bind("<KeyPress>", self.on_key_press)
+
+    #def game_logic(self):
+
+
+
+    def on_key_press(self, e):
+        # When the keycode is 111 (up arrow) we move the position of our box higher
+        self.e = e
+        canvas.delete(hero.a)
+        if self.e.keysym == 'Up':
+            hero.heroY = hero.heroY - 72
+            hero.draw_hero(canvas, hero.hero_pic_up)
+        elif self.e.keysym == 'Down':
+            hero.heroY = hero.heroY + 72
+            hero.draw_hero(canvas, hero.hero_pic_down)
+        elif self.e.keysym == 'Left':
+            hero.heroX = hero.heroX - 72
+            hero.draw_hero(canvas, hero.hero_pic_left)
+        elif self.e.keysym == 'Right':
+            hero.heroX = hero.heroX + 72
+            hero.draw_hero(canvas, hero.hero_pic_right)
+        # and lower if the key that was pressed the down arrow
+        # draw the box again in the new position
+
+# Tell the canvas that we prepared a function that can deal with the key press events
+
 # Creating a box that can draw itself in a certain position
 game_map = Map()
 hero = Hero()
+logic = GameLogic()
 
-# Create a function that can be called when a key pressing happens
-def on_key_press(e):
-    # When the keycode is 111 (up arrow) we move the position of our box higher
-    canvas.delete(hero.a)
-    if e.keysym == 'Up':
-        hero.heroY = hero.heroY - 72
-        hero.draw_hero(canvas, hero.hero_pic_up)
-    elif e.keysym == 'Down':
-        hero.heroY = hero.heroY + 72
-        hero.draw_hero(canvas, hero.hero_pic_down)
-    elif e.keysym == 'Left':
-        hero.heroX = hero.heroX - 72
-        hero.draw_hero(canvas, hero.hero_pic_left)
-    elif e.keysym == 'Right':
-        hero.heroX = hero.heroX + 72
-        hero.draw_hero(canvas, hero.hero_pic_right)
-    # and lower if the key that was pressed the down arrow
-    # draw the box again in the new position
 
-# Tell the canvas that we prepared a function that can deal with the key press events
-canvas.bind("<KeyPress>", on_key_press)
+
 
 canvas.pack()
 
