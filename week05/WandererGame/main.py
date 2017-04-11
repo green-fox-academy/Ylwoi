@@ -49,6 +49,10 @@ class GameLogic(object):
     def move_control(self):
         self.hero_cord_x = hero.heroX // 72
         self.hero_cord_y = hero.heroY // 72
+        if self.hero_cord_x < 0 or self.hero_cord_x > 9:
+            return False
+        if self.hero_cord_y < 0 or self.hero_cord_y > 9:
+            return False
         for i in game_map.wall_matrix:
             for j in i:
                 if self.hero_cord_x == j and self.hero_cord_y == game_map.wall_matrix.index(i):
