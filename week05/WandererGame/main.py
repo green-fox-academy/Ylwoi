@@ -46,11 +46,8 @@ class Skeleton(object):
 
     def draw_skeleton(self, canvas):
         self.ds = canvas.create_image(self.skeletonX, self.skeletonY, image=self.skeleton_pic)
-# Create the tk environment as usual
-root = Tk()
-canvas = Canvas(root, width=720, height=792)
 
-# Create a function that can be called when a key pressing happens
+
 class GameLogic(object):
     def __init__(self):
         canvas.bind("<KeyPress>", self.on_key_press)
@@ -98,24 +95,19 @@ class GameLogic(object):
                 hero.draw_hero(canvas, hero.hero_pic_right)
             else:
                 hero.draw_hero(canvas, hero.hero_pic_right)
-        # and lower if the key that was pressed the down arrow
-        # draw the box again in the new position
 
-# Tell the canvas that we prepared a function that can deal with the key press events
 
-# Creating a box that can draw itself in a certain position
+root = Tk()
+canvas = Canvas(root, width=720, height=792)
+
 game_map = Map()
 hero = Hero()
 logic = GameLogic()
 skel_1 = Skeleton(108,36 )
 
-
 canvas.pack()
-
-# Select the canvas to be in focused so it actually recieves the key hittings
 canvas.focus_set()
 
-# Draw the box in the initial position
 game_map.draw_floor(canvas)
 game_map.draw_wall(canvas)
 hero.draw_hero(canvas, hero.hero_pic_down)
