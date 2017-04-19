@@ -1,0 +1,20 @@
+.container{
+    height: 300px;
+    width: auto;
+    display: flex;
+}
+
+.item.green{
+    background-color: green;
+    width: 300px;
+}
+
+.item.yellow{
+    background-color: yellow;
+    width: 300px;
+}
+
+.item.purple{
+    background-color: purple;
+    width: 300px;
+}
