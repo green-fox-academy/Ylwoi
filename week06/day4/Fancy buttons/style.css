@@ -8,24 +8,42 @@ button {
     box-shadow: 1px 1px 1px 1px lightgrey;
     border-radius: 2px;
     font-weight: lighter;
+    padding-bottom: 7px;
 }
 
 .button_one {
     background-color: whitesmoke;
+    background: -webkit-linear-gradient(top, whitesmoke 0%, lightgray 100%);
     border-color: #aaaaaa;
     color: #536060;
 }
 
 .button_two {
     background-color: #4285f4;
+    background: -webkit-linear-gradient(top, #4285f4 0%, steelblue 100%);
     border-color: darkslateblue;
     color: whitesmoke;
     text-shadow: 0 -2px grey;
 }
 
 .button_three {
-    background-color: limegreen;
+    background-color: lime;
+    background: -webkit-linear-gradient(top, lime 0%, limegreen 100%);
     border-color: darkgreen;
     color: whitesmoke;
     text-shadow: 0 -2px grey;
+}
+
+.button_one:hover {
+    background: -webkit-linear-gradient(bottom, whitesmoke 0%, lightgray 100%);
+}
+
+.button_two:hover {
+    background: -webkit-linear-gradient(bottom, #4285f4 0%, steelblue 100%);
+
+}
+
+.button_three:hover {
+    background: -webkit-linear-gradient(bottom, lime 0%, limegreen 100%);
+
 }
