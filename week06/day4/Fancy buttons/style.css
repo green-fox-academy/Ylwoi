@@ -1,0 +1,31 @@
+button {
+    display: inline-block;
+    width: 229px;
+    height: 66px;
+    font-size: 30px;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    border: 2px solid;
+    box-shadow: 1px 1px 1px 1px lightgrey;
+    border-radius: 2px;
+    font-weight: lighter;
+}
+
+.button_one {
+    background-color: whitesmoke;
+    border-color: #aaaaaa;
+    color: #536060;
+}
+
+.button_two {
+    background-color: #4285f4;
+    border-color: darkslateblue;
+    color: whitesmoke;
+    text-shadow: 0 -2px grey;
+}
+
+.button_three {
+    background-color: limegreen;
+    border-color: darkgreen;
+    color: whitesmoke;
+    text-shadow: 0 -2px grey;
+}
