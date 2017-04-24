@@ -1,0 +1,47 @@
+.header {
+    width: 80%;
+    height: 90px;
+    background: cyan;
+    margin: 0 10%;
+}
+
+.main {
+    display: flex;
+    width: 80%;
+    height: 400px;
+    margin: 0 10%;
+}
+
+.left_side {
+    background: orange;
+    width: 20%;
+}
+
+.center {
+    display: flex;
+    background: red;
+    width: 50%;
+    margin: 0 5%;
+    padding: 5%;
+    justify-content: flex-end;
+
+}
+
+.content {
+    background: black;
+    width: 20%;
+    height: 12%;
+    align-self: flex-end;
+}
+
+.right_side {
+    background: purple;
+    width: 20%;
+}
+
+.footer {
+    width: 80%;
+    height: 90px;
+    background: blue;
+    margin: 0 10%;
+}
