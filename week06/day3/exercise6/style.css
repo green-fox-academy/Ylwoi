@@ -42,16 +42,38 @@
     flex-direction: column;
     background: orange;
     width: 100%;
+    padding: 5% 2%;
 }
 
 .container__main_list {
     display: flex;
     flex-flow: wrap row;
+    justify-content: center;
+}
+
+.main__list_element {
+    background: red;
+    width: 20%;
+    height: 80px;
+    margin: 2%;
 }
 
 .container__sidebar {
     display: flex;
     flex-direction: column;
     background: limegreen;
-    min-width: 33.3%;
+    width: 33.3%;
+    padding: 5% 2%;
+}
+
+.container__sidebar_list {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar__list_element {
+    height: 30px;
+    width: 100%;
+    background: darkmagenta;
+    margin-bottom: 5px;
 }
