@@ -30,3 +30,28 @@
 .header_link.right {
     width: 30px;
 }
+
+.container {
+    display: flex;
+    width: auto;
+    margin: 0 7%;
+}
+
+.container__main {
+    display: flex;
+    flex-direction: column;
+    background: orange;
+    width: 100%;
+}
+
+.container__main_list {
+    display: flex;
+    flex-flow: wrap row;
+}
+
+.container__sidebar {
+    display: flex;
+    flex-direction: column;
+    background: limegreen;
+    min-width: 33.3%;
+}
