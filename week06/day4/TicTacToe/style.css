@@ -1,0 +1,44 @@
+h1 {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 308px;
+    margin: auto;
+}
+
+.container div {
+    display: flex;
+    height: 100px;
+    width: 100px;
+}
+.container input {
+    width: 100px;
+    height: auto;
+    font-size: 80px;
+    text-align: center;
+    border: hidden;
+}
+
+.iv, .v, .vi {
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
+}
+
+.ii, .v, .viii {
+    border-left: 4px solid black;
+    border-right: 4px solid black;
+}
+
+.reload {
+    display: block;
+    position: absolute;
+    width: auto;
+    height: auto;
+    font-size: 30px;
+    font-weight: bold;
+    top: 50px;
+}
