@@ -34,7 +34,7 @@
 .container {
     display: flex;
     width: auto;
-    margin: 0 7%;
+    margin: 0 7% 5% 7%;
 }
 
 .container__main {
@@ -58,6 +58,14 @@
     margin: 2%;
 }
 
+.container__main_text-row {
+    display: flex;
+}
+
+.container__main_text {
+    margin: 10px 10px;
+}
+
 .container__sidebar {
     display: flex;
     flex-direction: column;
@@ -76,4 +84,8 @@
     width: 100%;
     background: darkmagenta;
     margin-bottom: 5px;
+}
+
+.container__sidebar_text {
+    margin: 10px 0;
 }
