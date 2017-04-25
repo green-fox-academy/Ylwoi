@@ -1,9 +1,10 @@
 .menu {
     display: flex;
     background: black;
-    width: 100px;
+    width: 150px;
     flex-direction: column;
     padding: 5px;
+    font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
 }
 
 .logo {
@@ -13,20 +14,49 @@
     background: orange;
 }
 
-h1,h2 {
-    font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
-    font-weight: bolder;
-}
-
 .name {
     align-self: center;
     font-size: 20px;
+    font-weight: bolder;
 }
 
-.monoB {
+.monogram {
     position: relative;
     align-self: flex-end;
     font-size: 36px;
-    right: 12px;
+    font-weight: bolder;
+    letter-spacing: -14px;
+    right: 10px;
     bottom: -5px;
+}
+
+.menu_button {
+    display: flex;
+    flex-flow: wrap column;
+    margin: 10px 0;
+}
+
+.button {
+    padding: 10px 0;
+    text-decoration: none;
+    color: #aaaaaa;
+}
+
+.button:hover {
+    color: orange;
+}
+
+.social {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.social_logo.github > img {
+    background-color: white;
+    filter: invert(1);
+}
+
+.social_logo:hover {
+    filter: invert(1);
 }
