@@ -8,8 +8,12 @@
 //     - Prepare for the special case when no parameters are given
 // - Greet `al`
 var al = 'Greenfox';
-function greet(who = 'somebody') {
-    console.log('Greetings, dear', who);
+function greet(who) {
+    if (arguments === undefined) {
+        console.log('Greetings, dear Undefined')
+    } else{
+        console.log('Greetings, dear', who);
+    }
 }
 
 greet(al);
