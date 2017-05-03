@@ -9,7 +9,7 @@
 // - Greet `al`
 var al = 'Greenfox';
 function greet(who = 'somebody') {
-    console.log('Greatings, dear', who);
+    console.log('Greetings, dear', who);
 }
 
 greet(al);
