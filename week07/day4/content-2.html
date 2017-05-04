@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Workshop: innerHTML, textContent</title>
+</head>
+<body>
+  <p class="apple">apple</p>
+  <p class="balloon">banana</p>
+  <p class="cat">car</p>
+  <p class="dog">dolphin</p>
+
+  <!-- You can work in the html or in a separate js file. Like:
+  <script>
+    fill every paragraph with the last one's content.
+  </script>
+  OR
+  <script src="content-2.js"></script> -->
+  <script>
+      'use strict';
+
+      var allP = document.querySelectorAll('p');
+      console.log(allP);
+      console.log(allP[0].textContent);
+      for (var i = allP.length-1; i > 1; i--) {
+          allP[i].textContent = allP[i-1].textContent;
+      }
+  </script>
+</body>
+</html>
