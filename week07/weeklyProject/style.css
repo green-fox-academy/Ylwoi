@@ -18,6 +18,12 @@
     align-items: center;
     background: whitesmoke;
     width: 5%;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.button:hover {
+    color: #808080;
 }
 
 .picture {
