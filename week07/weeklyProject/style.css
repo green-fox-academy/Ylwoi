@@ -1,0 +1,15 @@
+.container {
+    background: lightslategray;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider {
+    display: flex;
+    background: red;
+    height: 60%;
+    width: 80vw;
+    /*margin: 0 80px;*/
+}
