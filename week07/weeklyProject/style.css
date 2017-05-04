@@ -8,8 +8,18 @@
 
 .slider {
     display: flex;
-    background: red;
     height: 60%;
     width: 80vw;
-    /*margin: 0 80px;*/
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: whitesmoke;
+    width: 5%;
+}
+
+.picture {
+    width: 90%;
 }
