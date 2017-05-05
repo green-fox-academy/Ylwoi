@@ -58,6 +58,8 @@ image.setAttribute('src',picList[0]['img']);
 picTitle.textContent = picList[0]['title'];
 picText.textContent = picList[0]['description'];
 
+
+
 function slideLeft() {
     if (index > 0) {
         index--;
