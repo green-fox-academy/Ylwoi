@@ -47,12 +47,16 @@ var picList = [
 
 ];
 
-var index = 2;
+var index = 0;
 var leftButton = document.querySelector('.button.left');
 var rightButton = document.querySelector('.button.right');
 var image = document.querySelector('.picture');
 var picTitle = document.querySelector('h2');
 var picText = document.querySelector('p');
+
+image.setAttribute('src',picList[0]['img']);
+picTitle.textContent = picList[0]['title'];
+picText.textContent = picList[0]['description'];
 
 function slideLeft() {
     if (index > 0) {
