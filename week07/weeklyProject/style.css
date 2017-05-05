@@ -52,3 +52,16 @@ p {
     color: darkgrey;
     margin: 2%;
 }
+
+.littlePics {
+    display: flex;
+    justify-content: center;
+    width: 70vw;
+    height: 15%;
+    margin: 5% 0;
+}
+
+.pics {
+    width: 9vw;
+    margin: 0 1%;
+}
