@@ -20,8 +20,8 @@ var picList = [
         description: 'Lorem ipsum dolor sit amet, libris iisque scripta et mel. Autem definiebas philosophia ea vis. Eos sanctus omittam molestiae at, eius viris audiam at per. Tale labitur virtute nam in, ei cum hinc ridens efficiendi. Vis luptatum voluptaria in.'
     },
     {
-        img:'img/aurora.jpg',
-        title: 'Aurora over the tree',
+        img:'img/road.jpg',
+        title: 'Highway to Heaven',
         description: 'Lorem ipsum dolor sit amet, libris iisque scripta et mel. Autem definiebas philosophia ea vis. Eos sanctus omittam molestiae at, eius viris audiam at per. Tale labitur virtute nam in, ei cum hinc ridens efficiendi. Vis luptatum voluptaria in.'
     },
     {
@@ -46,3 +46,33 @@ var picList = [
     }
 
 ];
+
+var index = 2;
+var leftButton = document.querySelector('.button.left');
+var rightButton = document.querySelector('.button.right');
+var image = document.querySelector('.picture');
+var picTitle = document.querySelector('h2');
+var picText = document.querySelector('p');
+
+function slideLeft() {
+    if (index > 0) {
+        index--;
+        console.log(index);
+        image.setAttribute('src',picList[index]['img']);
+        picTitle.textContent = picList[index]['title'];
+        picText.textContent = picList[index]['description'];
+    }
+}
+
+function slideRight() {
+    if (index < picList.length-1) {
+        index++;
+        console.log(index);
+        image.setAttribute('src',picList[index]['img']);
+        picTitle.textContent = picList[index]['title'];
+        picText.textContent = picList[index]['description'];
+    }
+}
+
+leftButton.addEventListener('click',slideLeft);
+rightButton.addEventListener('click',slideRight);
