@@ -53,30 +53,36 @@ var rightButton = document.querySelector('.button.right');
 var image = document.querySelector('.picture');
 var picTitle = document.querySelector('h2');
 var picText = document.querySelector('p');
+var thumbs = document.querySelectorAll('.pics');
 
 image.setAttribute('src',picList[0]['img']);
 picTitle.textContent = picList[0]['title'];
 picText.textContent = picList[0]['description'];
+thumbnails();
 
-
+function thumbnails() {
+    for (var i = 0; i < thumbs.length; i++) {
+        thumbs[i].setAttribute('src',picList[index+i]['img'] );
+    }
+}
 
 function slideLeft() {
     if (index > 0) {
         index--;
-        console.log(index);
         image.setAttribute('src',picList[index]['img']);
         picTitle.textContent = picList[index]['title'];
         picText.textContent = picList[index]['description'];
+        thumbnails();
     }
 }
 
 function slideRight() {
     if (index < picList.length-1) {
         index++;
-        console.log(index);
         image.setAttribute('src',picList[index]['img']);
         picTitle.textContent = picList[index]['title'];
         picText.textContent = picList[index]['description'];
+        thumbnails();
     }
 }
 
