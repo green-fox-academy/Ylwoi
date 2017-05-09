@@ -30,6 +30,19 @@ var car = {
     }
 };
 
+var station = {
+    petrolStorage: 5000,
+    provide: function (car, amount) {
+        car.refill(amount);
+        if (amount <= car.petrolCapacity){
+            this.petrolStorage -= amount;
+        } else {
+            this.petrolStorage -= car.petrolCapacity;
+        }
+
+    }
+};
+
 
 
 
@@ -40,7 +53,7 @@ var car = {
 console.log(car.petrolLevel);
 console.log(station.petrolStorage);
 
-station.provide(car);
+station.provide(car,100);
 
 console.log(car.petrolLevel);
 console.log(station.petrolStorage);
