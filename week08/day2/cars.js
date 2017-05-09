@@ -38,8 +38,10 @@ var ferrari = {
 
 function refuel(liters) {
     this.fuel += liters;
+    return this.fuel;
 }
-
+var valami = refuel.bind(ferrari);
+console.log(valami(52));
 
 
 
