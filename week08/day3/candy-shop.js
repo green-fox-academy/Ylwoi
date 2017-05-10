@@ -35,12 +35,18 @@ candyMachine.addEventListener('click', function () {
     rain *= 10;
 });
 
-setInterval(function () {
-    if (lollyPopCounter >= 10 && lollyPopCounter < 10000) {
+var engine = setInterval(function () {
+    if (lollyPopCounter >= 10) {
         speedCounter = Math.floor(lollyPopCounter/10)+rain;
         speedStatus.textContent = speedCounter;
         candyCounter += speedCounter;
         candyStatus.textContent = candyCounter;
+    } if (candyCounter >= 10000) {
+        var winText = document.createElement('h1');
+        winText.textContent = 'YOU WIN!!!';
+        document.body.appendChild(winText);
+        clearInterval(engine);
+
     }
 
 }, 1000);
