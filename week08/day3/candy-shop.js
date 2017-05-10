@@ -15,6 +15,8 @@ var candyCounter = parseInt(candyStatus.textContent);
 var lollyPopCounter = parseInt(lollyPopStatus.textContent.length/2);
 var speedCounter = parseInt(speedStatus.textContent);
 
+var rain = 1;
+
 createCandy.addEventListener('click', function () {
     candyCounter++;
     candyStatus.textContent = candyCounter;
@@ -25,12 +27,17 @@ buyLollipop.addEventListener('click', function () {
         candyCounter -= 100;
         candyStatus.textContent = candyCounter;
         lollyPopStatus.textContent +='🍭';
+        lollyPopCounter++;
     }
 });
 
+candyMachine.addEventListener('click', function () {
+    rain *= 10;
+});
+
 setInterval(function () {
-    if (lollyPopCounter >= 10) {
-        speedCounter = Math.floor(lollyPopCounter/10);
+    if (lollyPopCounter >= 10 && lollyPopCounter < 10000) {
+        speedCounter = Math.floor(lollyPopCounter/10)+rain;
         speedStatus.textContent = speedCounter;
         candyCounter += speedCounter;
         candyStatus.textContent = candyCounter;
