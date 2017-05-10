@@ -11,9 +11,9 @@ var candyStatus = document.querySelector('.candies');
 var lollyPopStatus = document.querySelector('.lollypops');
 var speedStatus = document.querySelector('.speed');
 
-var candyCounter = candyStatus.textContent;
-var lollyPopCounter = lollyPopStatus.textContent.length;
-var speedCounter = speedStatus.textContent;
+var candyCounter = parseInt(candyStatus.textContent);
+var lollyPopCounter = lollyPopStatus.textContent.length/2;
+var speedCounter = parseInt(speedStatus.textContent);
 
 createCandy.addEventListener('click', function () {
     candyCounter++;
@@ -29,8 +29,11 @@ buyLollipop.addEventListener('click', function () {
 });
 
 setInterval(function () {
-    if (lollyPopCounter % 10 === 0) {
+    if (lollyPopCounter >= 10) {
         speedCounter = lollyPopCounter/10;
         speedStatus.textContent = speedCounter;
+        candyCounter += speedCounter;
+        candyStatus.textContent = candyCounter;
     }
-}, 1);
+
+}, 1000);
