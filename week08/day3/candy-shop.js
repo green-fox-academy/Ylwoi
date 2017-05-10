@@ -12,7 +12,7 @@ var lollyPopStatus = document.querySelector('.lollypops');
 var speedStatus = document.querySelector('.speed');
 
 var candyCounter = parseInt(candyStatus.textContent);
-var lollyPopCounter = lollyPopStatus.textContent.length/2;
+var lollyPopCounter = parseInt(lollyPopStatus.textContent.length/2);
 var speedCounter = parseInt(speedStatus.textContent);
 
 createCandy.addEventListener('click', function () {
@@ -30,7 +30,7 @@ buyLollipop.addEventListener('click', function () {
 
 setInterval(function () {
     if (lollyPopCounter >= 10) {
-        speedCounter = lollyPopCounter/10;
+        speedCounter = Math.floor(lollyPopCounter/10);
         speedStatus.textContent = speedCounter;
         candyCounter += speedCounter;
         candyStatus.textContent = candyCounter;
