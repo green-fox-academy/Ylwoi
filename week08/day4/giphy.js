@@ -7,7 +7,6 @@ window.onload = function () {
     httpRequest.onreadystatechange = function () {
         if (httpRequest.readyState == 4 && httpRequest.status == 200) {
             var list = JSON.parse(httpRequest.response);
-            console.log(list);
 
             list.data.forEach(function (obj) {
                 var pic = document.createElement('img');
