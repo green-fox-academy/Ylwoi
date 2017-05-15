@@ -8,9 +8,6 @@ function fibonacci(index) {
     } else {
         return 'It is not an integer'
     }
-
 }
-
-console.log(fibonacci('1'));
 
 module.exports = fibonacci;
