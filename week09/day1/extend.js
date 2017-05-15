@@ -5,7 +5,10 @@
 
 // Adds a and b, returns as result
 const addNumbers = function(a, b) {
-    return 5;
+    if ( typeof a !== 'number' || typeof b !== 'number') {
+        throw new Error('Invalid value')
+    }
+    return a + b;
 };
 
 // Returns the highest value from the three given params
