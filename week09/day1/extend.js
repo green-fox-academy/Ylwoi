@@ -13,11 +13,10 @@ const addNumbers = function(a, b) {
 
 // Returns the highest value from the three given params
 const maxOfThree = function(a, b, c) {
-    if (a > b) {
-        return a;
-    } else {
-        return c;
+    if ( typeof a !== 'number' || typeof b !== 'number' || typeof c !== 'number') {
+        throw new Error('Invalid value')
     }
+    return Math.max(a,b,c)
 };
 
 //Returns the median value of a list given as param
