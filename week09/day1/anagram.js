@@ -8,3 +8,5 @@ function anagram(str1, str2) {
     let word2 = str2.toString().toLowerCase().split('').sort().join();
     return word1 === word2;
 }
+
+module.exports = anagram();
