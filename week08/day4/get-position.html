@@ -3,11 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Get Position</title>
+    <style>
+        #map {
+            width: 100%;
+            height: 400px;
+            background-color: grey;
+        }
+    </style>
 </head>
 <body>
 <h1>Get Position</h1>
 <input>
 <button>Search</button>
+<div id="map"></div>
 <script src="get-position.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0SRjuSucpOdK2hJoCQOCT-uY17uQobXY&callback=initMap"></script>
+
 </body>
 </html>
