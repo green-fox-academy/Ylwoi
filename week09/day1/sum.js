@@ -7,7 +7,9 @@ var object = {
     sum: function (list) {
         let sum = 0;
         list.forEach(function (e) {
-            sum += e;
+            if (typeof e === 'number'){
+                sum += e;
+            }
         });
         return sum;
     }
