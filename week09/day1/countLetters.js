@@ -15,3 +15,5 @@ function countLetters(string) {
     });
     return dict;
 }
+
+module.exports = countLetters;
