@@ -9,4 +9,4 @@ function anagram(str1, str2) {
     return word1 === word2;
 }
 
-module.exports = anagram();
+module.exports = anagram;
