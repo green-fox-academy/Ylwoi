@@ -21,7 +21,15 @@ const maxOfThree = function(a, b, c) {
 
 //Returns the median value of a list given as param
 const median = function(pool){
-    return(pool[(pool.length - 1) / 2]);
+    pool = pool.sort();
+    if (typeof pool[pool.length-1] === 'string') {
+        return 'Invalid value'
+    }
+    else if (pool.length % 2 === 0) {
+        return (pool[pool.length/2-1] + pool[pool.length/2]) / 2
+    } else {
+        return pool[(pool.length+1) / 2 - 1]
+    }
 };
 
 // Returns true if the param is a vovel
