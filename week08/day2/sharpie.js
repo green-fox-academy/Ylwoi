@@ -10,15 +10,6 @@ function sharpie (color, width) {
     this.use = function () {
         this.inkAmount -= this.width;
     }
-
 }
 
-var shar1 = new sharpie('blue', 20);
-console.log(shar1.inkAmount);
-shar1.use();
-console.log(shar1.inkAmount);
-
-var shar2 = new sharpie('green', 30);
-console.log(shar2.inkAmount);
-shar2.use();
-console.log(shar2.inkAmount);
+module.exports = sharpie;
