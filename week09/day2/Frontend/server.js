@@ -8,12 +8,11 @@ var app = express();
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
+    app.use('/assets/', express.static('assets'));
 });
 
-app.use('/assets', express.static('assets'));
-
 app.get('/doubling', function (req, res) {
-    var inp = req.query.input;
+    var inp = parseInt(req.query.input);
     if (inp) {
         res.send({
             received: inp,
@@ -32,11 +31,15 @@ app.get('/greeter', function (req, res) {
     var title = req.query.title;
     if (name && title) {
         res.send({
-            welcome_message: "Oh, hi there " + name + " , my dear " + title + " !"
+            welcome_message: "Oh, hi there " + name + ", my dear " + title + "!"
         })
-    } else {
+    } else if (!name) {
         res.send({
-            error: 'Please provide an input!'
+            error: 'Please provide a name!'
+        })
+    } else if (!title) {
+        res.send({
+            error: 'Please provide a title!'
         })
     }
 });
@@ -56,4 +59,6 @@ app.get('/appenda/:appendable', function (req, res) {
 
 });
 
-app.listen(3000);
+
+
+app.listen(8080);
