@@ -41,4 +41,19 @@ app.get('/greeter', function (req, res) {
     }
 });
 
+app.get('/appenda/:appendable', function (req, res) {
+    function appendA (word) {
+        return word + 'a'
+    }
+    var appendable = req.params.appendable;
+    if (appendable) {
+        res.send({
+            "appended": appendA(appendable)
+        })
+    } else {
+        res.send(status(404))
+    }
+
+});
+
 app.listen(3000);
