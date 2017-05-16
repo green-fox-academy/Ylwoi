@@ -1,0 +1,44 @@
+/**
+ * Created by cw on 2017-05-16.
+ */
+'use strict';
+
+var express = require('express');
+var app = express();
+
+app.get('/', function (req, res) {
+    res.sendFile(__dirname + '/index.html');
+});
+
+app.use('/assets', express.static('assets'));
+
+app.get('/doubling', function (req, res) {
+    var inp = req.query.input;
+    if (inp) {
+        res.send({
+            received: inp,
+            result: inp*2
+        })
+    } else {
+        res.send({
+            error: 'Please provide an input!'
+        })
+    }
+
+});
+
+app.get('/greeter', function (req, res) {
+    var name = req.query.name;
+    var title = req.query.title;
+    if (name && title) {
+        res.send({
+            welcome_message: "Oh, hi there " + name + " , my dear " + title + " !"
+        })
+    } else {
+        res.send({
+            error: 'Please provide an input!'
+        })
+    }
+});
+
+app.listen(3000);
