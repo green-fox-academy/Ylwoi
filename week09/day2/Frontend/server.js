@@ -4,11 +4,14 @@
 'use strict';
 
 var express = require('express');
+var bodyParser = require('body-parser');
 var app = express();
+
+app.use('/assets/', express.static('assets'));
+app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
-    app.use('/assets/', express.static('assets'));
 });
 
 app.get('/doubling', function (req, res) {
@@ -59,6 +62,31 @@ app.get('/appenda/:appendable', function (req, res) {
 
 });
 
+app.post('/dountil/:operation/', function (req, res) {
+    var operation = req.params.operation;
+    var until = req.body.until;
 
+    if (operation === 'factor' && until) {
+        let sum = 1;
+        for (let i = until; i > 0; i--) {
+            sum *= i;
+        }
+        res.send({
+            result: sum
+        })
+    } else if (operation === 'sum' && until) {
+        let sum = 0;
+        for (let i = 0; i <= until; i++) {
+            sum += i;
+        }
+        res.send({
+            result: sum
+        })
+    } else {
+        res.send({
+            error: 'Please provide a number!'
+        })
+    }
+});
 
 app.listen(8080);
