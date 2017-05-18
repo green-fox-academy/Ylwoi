@@ -29,7 +29,7 @@ const queryAllFullData = 'SELECT book_mast.book_name, author.aut_name, category.
     'FROM book_mast ' +
     'LEFT JOIN author ON book_mast.aut_id = author.aut_id ' +
     'LEFT JOIN category ON book_mast.cate_id = category.cate_id ' +
-    'LEFT JOIN publisher ON book_mast.pub_id = publisher.pub_id;';
+    'LEFT JOIN publisher ON book_mast.pub_id = publisher.pub_id ;';
 
 app.get('/listbooks', function (req, res) {
     conn.query(queryAllBook, function (err, rows) {
@@ -47,7 +47,26 @@ app.get('/listbooks', function (req, res) {
 });
 
 app.get('/allbooksfulldata', function (req, res) {
-    conn.query(queryAllFullData, function (err, rows) {
+    var category = req.query.category;
+    var publisher = req.query.publisher;
+    var plt = req.query.plt;
+    var pgt = req.query.pgt;
+    var queryFilter = queryAllFullData;
+    if (category) {
+        queryFilter = queryFilter.slice(0, -1);
+        queryFilter += "WHERE category.cate_descrip = '" + category + "';"
+    }
+    if (publisher) {
+        queryFilter = queryFilter.slice(0, -1);
+        queryFilter += "WHERE publisher.pub_name = '" + publisher + "';"
+    } if (plt) {
+        queryFilter = queryFilter.slice(0, -1);
+        queryFilter += "WHERE book_mast.book_price < '" + plt + "';"
+    } if (pgt) {
+        queryFilter = queryFilter.slice(0, -1);
+        queryFilter += "WHERE book_mast.book_price > '" + pgt + "';"
+    }
+    conn.query(queryFilter, function (err, rows) {
         if (err) {
             console.log('Nem jau', err)
         } else {
@@ -57,7 +76,8 @@ app.get('/allbooksfulldata', function (req, res) {
                     '</td><td>' + row.book_price + '</td></tr>';
             });
             html += '</table>';
-            res.send(html)
+            res.send(html);
+            queryFilter = queryAllFullData;
         }
     });
 });
