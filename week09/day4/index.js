@@ -51,21 +51,23 @@ app.get('/allbooksfulldata', function (req, res) {
     var publisher = req.query.publisher;
     var plt = req.query.plt;
     var pgt = req.query.pgt;
+
     var queryFilter = queryAllFullData;
-    if (category) {
+    if ((category) || (publisher) || (plt) || (pgt)) {
         queryFilter = queryFilter.slice(0, -1);
-        queryFilter += "WHERE category.cate_descrip = '" + category + "';"
+        queryFilter += 'WHERE ';
+        if (category) {
+            queryFilter += "category.cate_descrip = '" + category + "' AND "
+        } if (publisher) {
+            queryFilter += "publisher.pub_name = '" + publisher + "' AND "
+        } if (plt) {
+            queryFilter += "book_mast.book_price < '" + plt + "' AND "
+        } if (pgt) {
+            queryFilter += "book_mast.book_price > '" + pgt + "' AND "
+        }
+        queryFilter = queryFilter.slice(0,-4);
     }
-    if (publisher) {
-        queryFilter = queryFilter.slice(0, -1);
-        queryFilter += "WHERE publisher.pub_name = '" + publisher + "';"
-    } if (plt) {
-        queryFilter = queryFilter.slice(0, -1);
-        queryFilter += "WHERE book_mast.book_price < '" + plt + "';"
-    } if (pgt) {
-        queryFilter = queryFilter.slice(0, -1);
-        queryFilter += "WHERE book_mast.book_price > '" + pgt + "';"
-    }
+
     conn.query(queryFilter, function (err, rows) {
         if (err) {
             console.log('Nem jau', err)
