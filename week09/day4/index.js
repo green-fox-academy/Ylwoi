@@ -4,7 +4,9 @@
 'use strict';
 
 var mysql = require('mysql');
-var app = require('express');
+var express = require('express');
+
+const app = express();
 
 var conn = mysql.createConnection({
     host: 'localhost',
@@ -25,17 +27,21 @@ const country = 'USA';
 const city = 'Atlanta';
 const query = 'SELECT aut_name FROM author WHERE country = ? AND home_city = ?;';
 
-conn.query(query,[country, city], function (err, rows) {
-    if (err) {
-        console.log('Nem jau', err)
-    } else {
-        console.log('Data received from DB: \n');
-        rows.forEach(row => {
-            console.log(row.aut_name)
-        })
-    }
+
+
+app.get('/', function (req, res) {
+    conn.query(query,[country, city], function (err, rows) {
+        if (err) {
+            console.log('Nem jau', err)
+        } else {
+            console.log('Data received from DB: \n');
+            rows.forEach(row => {
+                console.log(row.aut_name);
+                res.send(row.aut_name);
+            })
+        }
+    });
 });
 
 
-
-conn.end();
+app.listen(3000);
