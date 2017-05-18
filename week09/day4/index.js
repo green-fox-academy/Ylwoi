@@ -23,22 +23,23 @@ conn.connect(function (err) {
     console.log('Connection established')
 });
 
-const country = 'USA';
-const city = 'Atlanta';
-const query = 'SELECT aut_name FROM author WHERE country = ? AND home_city = ?;';
+
+const queryAllBook = 'SELECT book_name FROM book_mast';
 
 
 
 app.get('/', function (req, res) {
-    conn.query(query,[country, city], function (err, rows) {
+    conn.query(queryAllBook, function (err, rows) {
         if (err) {
             console.log('Nem jau', err)
         } else {
             console.log('Data received from DB: \n');
+            var html = '<ol>';
             rows.forEach(row => {
-                console.log(row.aut_name);
-                res.send(row.aut_name);
-            })
+                html += '<li>' + row.book_name + '</li>';
+            });
+            html += '</ol>';
+            res.send(html)
         }
     });
 });
