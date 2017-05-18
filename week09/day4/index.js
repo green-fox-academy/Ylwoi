@@ -25,20 +25,38 @@ conn.connect(function (err) {
 
 
 const queryAllBook = 'SELECT book_name FROM book_mast';
+const queryAllFullData = 'SELECT book_mast.book_name, author.aut_name, category.cate_descrip, publisher.pub_name, book_mast.book_price ' +
+    'FROM book_mast ' +
+    'LEFT JOIN author ON book_mast.aut_id = author.aut_id ' +
+    'LEFT JOIN category ON book_mast.cate_id = category.cate_id ' +
+    'LEFT JOIN publisher ON book_mast.pub_id = publisher.pub_id;';
 
-
-
-app.get('/', function (req, res) {
+app.get('/listbooks', function (req, res) {
     conn.query(queryAllBook, function (err, rows) {
         if (err) {
             console.log('Nem jau', err)
         } else {
-            console.log('Data received from DB: \n');
             var html = '<ol>';
             rows.forEach(row => {
                 html += '<li>' + row.book_name + '</li>';
             });
             html += '</ol>';
+            res.send(html)
+        }
+    });
+});
+
+app.get('/allbooksfulldata', function (req, res) {
+    conn.query(queryAllFullData, function (err, rows) {
+        if (err) {
+            console.log('Nem jau', err)
+        } else {
+            var html = '<table> <tr><th>Book Title</th> <th>Authors name</th> <th>Category</th> <th>Publishers name</th> <th>Price</th></tr>';
+            rows.forEach(row => {
+                html += '<tr><td>' + row.book_name + '</td><td>' + row.aut_name + '</td><td>' + row.cate_descrip + '</td><td>' + row.pub_name +
+                    '</td><td>' + row.book_price + '</td></tr>';
+            });
+            html += '</table>';
             res.send(html)
         }
     });
