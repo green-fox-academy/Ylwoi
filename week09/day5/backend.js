@@ -6,8 +6,12 @@
 const express = require('express');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
+
+app.use(cors());
+app.use(bodyParser.json());
 
 const conn = mysql.createConnection({
     host: 'localhost',
@@ -32,9 +36,14 @@ app.get('/', function (req, res) {
         if (err) {
             console.log('ERROR, something wrong with the query', err);
         } else {
-            res.send(rows)
+            var results = {'posts': rows};
+            res.send(results)
         }
     });
+});
+
+app.post('/post', function (req, res) {
+    conn.query("INSERT INTO posts  VALUES (NULL, '" + req.body.title + "', '" + req.body.href + "', 'Anonymus', 0, " + Date.now() + ", 0 )");
 });
 
 app.listen(3000);
