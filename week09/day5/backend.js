@@ -7,14 +7,16 @@ const express = require('express');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
 
-const app = express;
+const app = express();
 
 const conn = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'root',
-    database: 'posts'
+    database: 'reddit'
 });
+
+const queryAllPosts = 'SELECT * FROM posts';
 
 conn.connect(function (err) {
     if (err) {
@@ -25,5 +27,14 @@ conn.connect(function (err) {
     }
 });
 
+app.get('/', function (req, res) {
+    conn.query(queryAllPosts, function (err, rows) {
+        if (err) {
+            console.log('ERROR, something wrong with the query', err);
+        } else {
+            res.send(rows)
+        }
+    });
+});
 
 app.listen(3000);
