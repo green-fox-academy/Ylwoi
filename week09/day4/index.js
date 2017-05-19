@@ -72,7 +72,7 @@ app.get('/allbooksfulldata', function (req, res) {
         if (err) {
             console.log('Nem jau', err)
         } else {
-            var html = '<table> <tr><th>Book Title</th> <th>Authors name</th> <th>Category</th> <th>Publishers name</th> <th>Price</th></tr>';
+            var html = '<table border="2px"> <tr><th>Book Title</th> <th>Authors name</th> <th>Category</th> <th>Publishers name</th> <th>Price</th></tr>';
             rows.forEach(row => {
                 html += '<tr><td>' + row.book_name + '</td><td>' + row.aut_name + '</td><td>' + row.cate_descrip + '</td><td>' + row.pub_name +
                     '</td><td>' + row.book_price + '</td></tr>';
