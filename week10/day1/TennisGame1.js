@@ -1,22 +1,22 @@
 var TennisGame1 = function() {
-    this.m_score1 = 0;
-    this.m_score2 = 0;
+    this.scorePlayer1 = 0;
+    this.scorePlayer2 = 0;
 };
 
 TennisGame1.prototype.wonPoint = function(playerName) {
     if (playerName === "player1") {
-        this.m_score1 += 1;
+        this.scorePlayer1 += 1;
     }
     else {
-        this.m_score2 += 1;
+        this.scorePlayer2 += 1;
     }
 };
 
 TennisGame1.prototype.getScore = function() {
     var scoreBoard = "";
     var tempScore = 0;
-    if (this.m_score1 === this.m_score2) {
-        switch (this.m_score1) {
+    if (this.scorePlayer1 === this.scorePlayer2) {
+        switch (this.scorePlayer1) {
             case 0:
                 scoreBoard = "Love-All";
                 break;
@@ -30,8 +30,8 @@ TennisGame1.prototype.getScore = function() {
                 scoreBoard = "Deuce";
                 break;
         }
-    } else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
-        var minusResult = this.m_score1 - this.m_score2;
+    } else if (this.scorePlayer1 >= 4 || this.scorePlayer2 >= 4) {
+        var minusResult = this.scorePlayer1 - this.scorePlayer2;
         if (minusResult === 1) {
             scoreBoard = "Advantage player1";
         }
@@ -47,11 +47,11 @@ TennisGame1.prototype.getScore = function() {
     } else {
         for (var i = 1; i < 3; i++) {
             if (i === 1) {
-                tempScore = this.m_score1;
+                tempScore = this.scorePlayer1;
             }
             else {
                 scoreBoard += "-";
-                tempScore = this.m_score2;
+                tempScore = this.scorePlayer2;
             }
             switch (tempScore) {
                 case 0:
