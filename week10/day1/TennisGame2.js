@@ -11,12 +11,11 @@ TennisGame2.prototype.getScore = function() {
 
     if (this.P1point === this.P2point && this.P1point < 3) {
         if (this.P1point === 0)
-            score = "Love";
+            score = "Love-All";
         if (this.P1point === 1)
-            score = "Fifteen";
+            score = "Fifteen-All";
         if (this.P1point === 2)
-            score = "Thirty";
-        score += "-All";
+            score = "Thirty-All";
     }
     if (this.P1point === this.P2point && this.P1point > 2)
         score = "Deuce";
