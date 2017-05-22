@@ -14,12 +14,11 @@ TennisGame1.prototype.wonPoint = function(playerName) {
 TennisGame1.prototype.getScore = function() {
     var scoreBoard = "";
     var tempScore = 0;
-    var options = ["Love-All", "Fifteen-All", "Thirty-All"];
-    if (this.scorePlayer1 === this.scorePlayer2) {
-        scoreBoard = (this.scorePlayer1 < 3 )? options[this.scorePlayer1] : 'Deuce';
-    }
+    var drawOptions = ["Love-All", "Fifteen-All", "Thirty-All"];
 
-    else if (this.scorePlayer1 >= 4 || this.scorePlayer2 >= 4) {
+    if (this.scorePlayer1 === this.scorePlayer2) {
+        scoreBoard = (this.scorePlayer1 < 3 )? drawOptions[this.scorePlayer1] : 'Deuce';
+    } else if (this.scorePlayer1 >= 4 || this.scorePlayer2 >= 4) {
         var minusResult = this.scorePlayer1 - this.scorePlayer2;
         if (minusResult === 1) {
             scoreBoard = "Advantage player1";
