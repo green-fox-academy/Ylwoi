@@ -6,8 +6,7 @@ var TennisGame1 = function() {
 TennisGame1.prototype.wonPoint = function(playerName) {
     if (playerName === "player1") {
         this.scorePlayer1 += 1;
-    }
-    else {
+    } else {
         this.scorePlayer2 += 1;
     }
 };
@@ -15,41 +14,27 @@ TennisGame1.prototype.wonPoint = function(playerName) {
 TennisGame1.prototype.getScore = function() {
     var scoreBoard = "";
     var tempScore = 0;
+    var options = ["Love-All", "Fifteen-All", "Thirty-All"];
     if (this.scorePlayer1 === this.scorePlayer2) {
-        switch (this.scorePlayer1) {
-            case 0:
-                scoreBoard = "Love-All";
-                break;
-            case 1:
-                scoreBoard = "Fifteen-All";
-                break;
-            case 2:
-                scoreBoard = "Thirty-All";
-                break;
-            default:
-                scoreBoard = "Deuce";
-                break;
-        }
-    } else if (this.scorePlayer1 >= 4 || this.scorePlayer2 >= 4) {
+        scoreBoard = (this.scorePlayer1 < 3 )? options[this.scorePlayer1] : 'Deuce';
+    }
+
+    else if (this.scorePlayer1 >= 4 || this.scorePlayer2 >= 4) {
         var minusResult = this.scorePlayer1 - this.scorePlayer2;
         if (minusResult === 1) {
             scoreBoard = "Advantage player1";
-        }
-        else if (minusResult === -1) {
+        } else if (minusResult === -1) {
             scoreBoard = "Advantage player2";
-        }
-        else if (minusResult >= 2) {
+        } else if (minusResult >= 2) {
             scoreBoard = "Win for player1";
-        }
-        else {
+        } else {
             scoreBoard = "Win for player2";
         }
     } else {
         for (var i = 1; i < 3; i++) {
             if (i === 1) {
                 tempScore = this.scorePlayer1;
-            }
-            else {
+            } else {
                 scoreBoard += "-";
                 tempScore = this.scorePlayer2;
             }
