@@ -1,11 +1,11 @@
 .container {
-    background-color: red;
     display: flex;
     flex-direction: column;
     width: 80vw;
     height: 80vh;
     margin: auto;
     font-family: 'Baloo', cursive;
+    border: 1px solid #B6B6B6;
 }
 
 .top {
@@ -15,7 +15,6 @@
 }
 
 .left {
-    background-color: green;
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -45,11 +44,9 @@
 .cover {
     width: 40%;
     height: 100%;
-    background-color: yellow;
 }
 
 .logo {
-    background-color: #318EFF;
     width: 70%;
     height: 70%;
 }
@@ -58,13 +55,13 @@
     display: flex;
     width: 100%;
     height: 30%;
-    background-color: #643579;
     justify-content: space-around;
     align-items: center;
 }
 
 .new-playlist {
     font-size: 200%;
+    cursor: pointer;
 }
 
 .playlists {
@@ -78,16 +75,22 @@
     display: flex;
     width: 100%;
     height: 20%;
-    background-color: #a9e6e6;
     justify-content: space-around;
     align-items: center;
+}
+
+.playlist > .delete-list {
+    cursor: pointer;
+}
+
+.playlist:hover {
+    background-color: #C6C6C6;
 }
 
 .currently-playing {
     display: flex;
     width: 100%;
     height: 20%;
-    background-color: #FFA500;
     justify-content: space-between;
     align-items: center;
 }
@@ -99,10 +102,10 @@
 
 .currently-buttons {
     display: flex;
+    cursor: pointer;
 }
 
 .tracks {
-    background-color: chartreuse;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -113,8 +116,12 @@
     display: flex;
     width: 100%;
     height: 10%;
-    background-color: #FF6347;
     align-items: center;
+    cursor: pointer;
+}
+
+.track:hover {
+    background-color: #F0F0F0;
 }
 
 .track-num {
