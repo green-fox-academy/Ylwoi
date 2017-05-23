@@ -1,0 +1,27 @@
+.container {
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    height: 60vh;
+}
+
+.top {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.left {
+    background-color: green;
+    display: flex;
+    width: 50%;
+    height: 100%;
+}
+
+.right {
+    background-color: blue;
+    display: flex;
+    width: 50%;
+    height: 100%;
+}
