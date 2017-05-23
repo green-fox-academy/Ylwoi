@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     width: 80vw;
-    height: 60vh;
+    height: 80vh;
 }
 
 .top {
@@ -15,8 +15,16 @@
 .left {
     background-color: green;
     display: flex;
+    flex-direction: column;
     width: 50%;
     height: 100%;
+}
+
+.left-top {
+    display: flex;
+    width: 100%;
+    height: 40%;
+    background-color: pink;
 }
 
 .right {
@@ -24,4 +32,47 @@
     display: flex;
     width: 50%;
     height: 100%;
+}
+
+.firm {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.cover {
+    width: 40%;
+    height: 100%;
+    background-color: yellow;
+}
+
+.logo {
+    background-color: #318EFF;
+    width: 100%;
+    height: 70%;
+}
+
+.playlist-creator {
+    display: flex;
+    width: 100%;
+    height: 30%;
+    background-color: #643579;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.playlists {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 60%;
+}
+
+.playlist {
+    display: flex;
+    width: 100%;
+    height: 20%;
+    background-color: #a9e6e6;
+    justify-content: space-between;
+    align-items: center;
 }
