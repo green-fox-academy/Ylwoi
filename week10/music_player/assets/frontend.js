@@ -27,7 +27,6 @@ let getTracks = function (callback) {
 
 let displayPlaylists = function (res) {
     let respPlaylist = JSON.parse(res);
-    console.log(respPlaylist);
 
     let lengthPlaylists = respPlaylist.length;
     for (let i = 0; i < lengthPlaylists; i++) {
@@ -49,6 +48,42 @@ let displayPlaylists = function (res) {
         divPlaylist.appendChild(anchPlaylist);
 
         htmlPLaylists.appendChild(divPlaylist);
+    }
+    getTracks(displayTracks);
+};
+
+let displayTracks = function (res) {
+    let respTracks = JSON.parse(res);
+    console.log(respTracks);
+
+    let lengthTracks = respTracks.length;
+    for (let i = 0; i < lengthTracks; i++) {
+        var htmlTracks = document.querySelector('.tracks');
+
+        let divTrack = document.createElement('div');
+        divTrack.setAttribute('class', 'track');
+
+        let numTrack = document.createElement('p');
+        numTrack.setAttribute('class', 'track-num');
+        numTrack.innerText = i+1;
+        divTrack.appendChild(numTrack);
+
+        let nameTrack = document.createElement('p');
+        nameTrack.setAttribute('class', 'track-name');
+        nameTrack.innerText = respTracks[i].artist;
+        divTrack.appendChild(nameTrack);
+
+        let timeTrack = document.createElement('p');
+        timeTrack.setAttribute('class', 'track-length');
+        let trackMin = Math.floor(respTracks[i].duration / 60);
+        let trackSec = Math.floor(respTracks[i].duration % 60);
+        if (trackSec < 10) {
+            trackSec = '0' + trackSec
+        }
+        timeTrack.innerText = trackMin + ':' + trackSec;
+        divTrack.appendChild(timeTrack);
+
+        htmlTracks.appendChild(divTrack);
     }
 };
 
