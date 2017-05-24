@@ -36,7 +36,7 @@
                     </div>
                     <div class="currently-buttons">
                         <a class="add-to-playlist">+</a>
-                        <a class="add-to-favorites">*</a>
+                        <a class="add-to-favorites">¶</a>
                     </div>
                 </div>
                 <div class="tracks">
@@ -49,10 +49,13 @@
             </div>
         </div>
         <div class="bottom">
-            <audio class="player" src="" controls></audio>
+            <audio id="player" controls>
+                <source src="bf1942.mp3" type="audio/mp3">
+            </audio>
         </div>
 
     </main>
 
+    <script src="backend.js"></script>
 </body>
 </html>
