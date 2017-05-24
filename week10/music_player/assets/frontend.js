@@ -83,6 +83,13 @@ let displayTracks = function (res) {
         timeTrack.innerText = trackMin + ':' + trackSec;
         divTrack.appendChild(timeTrack);
 
+        divTrack.addEventListener('click', function () {
+            let audio = document.querySelector('audio');
+            audio.setAttribute('src', respTracks[i].path);
+            audio.play();
+
+        });
+
         htmlTracks.appendChild(divTrack);
     }
 };
