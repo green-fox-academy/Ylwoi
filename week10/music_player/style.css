@@ -78,6 +78,7 @@
     height: 20%;
     justify-content: space-around;
     align-items: center;
+    cursor: pointer;
 }
 
 .playlist > .delete-list {
