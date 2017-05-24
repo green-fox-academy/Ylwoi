@@ -8,7 +8,7 @@ var express = require('express');
 const app = express();
 
 app.use('/assets', express.static('assets'));
-app.use('/images', express.static('images'));
+app.use('/media', express.static('media'));
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
