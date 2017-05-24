@@ -9,6 +9,7 @@
   "author": "Ylwoi",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.15.3",
     "wavesurfer.js": "^2.0.0-beta01"
   }
 }
