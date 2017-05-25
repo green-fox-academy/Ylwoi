@@ -156,3 +156,16 @@
 #player {
     width: 100%;
 }
+
+.playlist-form {
+    display: none;
+    position: absolute;
+    border: 2px double red;
+    padding: 3px;
+    font-family: 'Baloo', cursive;
+    background-color: black;
+    color: white;
+    font-size: 30px;
+    left: 40vw;
+    bottom: 50vh;
+}
