@@ -55,7 +55,7 @@ app.get('/playlist-tracks', function (req, res) {
 app.delete('/playlist-delete/:id', function (req, res) {
     let idToDelete = req.params.id;
     connect.query(deletePlaylist + idToDelete + ';');
-    queryPlaylist(res);
+    queryMaker(res, queryAllPlaylist);
 });
 
 app.listen(3000);
