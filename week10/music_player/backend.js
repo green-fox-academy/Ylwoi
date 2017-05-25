@@ -3,28 +3,34 @@
  */
 'use strict';
 
-var express = require('express');
+const express = require('express');
+const mysql = require('mysql');
 
 const app = express();
 
 app.use('/assets', express.static('assets'));
 app.use('/media', express.static('media'));
 
+const connect = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'root',
+    database: 'music_player'
+});
+
+connect.connect(function (err) {
+    if (err) {
+        console.log('Error connecting to DB');
+    } else {
+        console.log('Connection established');
+    }
+});
+
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
 });
 
-var playlists = [
-    { "id": 1, "title": "Favorites", "system": 1},
-    { "id": 2, "title": "Music for programming", "system": 0},
-    { "id": 3, "title": "Driving", "system": 0},
-    { "id": 5, "title": "Fox house", "system": 0},
-];
 
-var tracklist = [
-    { "id": 21, "title": "Battlefield 1942 Theme", "artist": "Untitled artist", "duration": 248, "path": "media/bf1942.mp3" },
-    { "id": 412, "title": "Purple", "artist": "Organoid", "duration": 208, "path": "media/purple.mp3" }
-];
 
 app.get('/playlists', function (req, res) {
     res.send(playlists)
