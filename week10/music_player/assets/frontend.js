@@ -36,6 +36,17 @@ let getTracks = function (callback) {
     }
 };
 
+let postNewPlaylist = function (callback, data) {
+    xhr.open('GET', 'http://localhost:3000/new-playlist/' + data, true);
+    console.log(data);
+    xhr.send();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            callback(xhr.response)
+        }
+    }
+};
+
 let displayPlaylists = function (res) {
     let respPlaylist = JSON.parse(res);
 
@@ -120,8 +131,15 @@ const controller = function () {
     this.newPlaylistCreator = function () {
         var newListButton = document.querySelector('.new-playlist');
         var playlistForm = document.querySelector('.playlist-form');
+        var createButton = document.querySelector('.create');
+        var input = document.querySelector('input');
         newListButton.addEventListener('click', function () {
             playlistForm.style.display = 'inline-block';
+        });
+        createButton.addEventListener('click', function () {
+            var data = input.value;
+            playlistForm.style.display = 'none';
+            postNewPlaylist(displayPlaylists, data)
         })
     };
 };

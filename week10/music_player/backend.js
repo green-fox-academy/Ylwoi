@@ -29,6 +29,8 @@ connect.connect(function (err) {
 const queryAllPlaylist = 'SELECT * FROM playlists';
 const queryAllTrack = 'SELECT * FROM tracks';
 const deletePlaylist = 'DELETE FROM playlists WHERE id = ';
+const createPlaylist = "INSERT INTO playlists VALUES (NULL, '";
+const createPlaylistEnd = "' , 0);";
 
 const queryMaker = function (res, query) {
     connect.query(query, function (err, rows) {
@@ -56,6 +58,15 @@ app.delete('/playlist-delete/:id', function (req, res) {
     let idToDelete = req.params.id;
     connect.query(deletePlaylist + idToDelete + ';');
     queryMaker(res, queryAllPlaylist);
+});
+
+app.get('/new-playlist/:plname', function (req, res) {
+    console.log(req.params.plname);
+    var playlistName = req.params.plname;
+    console.log(createPlaylist + playlistName + createPlaylistEnd);
+    connect.query(createPlaylist + playlistName + createPlaylistEnd);
+    queryMaker(res, queryAllPlaylist)
+
 });
 
 app.listen(3000);
