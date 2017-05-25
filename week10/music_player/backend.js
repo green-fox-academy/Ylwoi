@@ -26,14 +26,22 @@ connect.connect(function (err) {
     }
 });
 
+const queryAllPlaylist = 'SELECT * FROM playlists';
+
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
 });
 
-
-
 app.get('/playlists', function (req, res) {
-    res.send(playlists)
+    connect.query(queryAllPlaylist, function (err, rows) {
+        if (err) {
+            console.log('ERROR query', err)
+        } else {
+            var results = rows;
+            console.log(results);
+            res.send(results);
+        }
+    })
 });
 
 app.get('/playlist-tracks', function (req, res) {
