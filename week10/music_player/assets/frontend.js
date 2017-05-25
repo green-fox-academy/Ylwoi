@@ -113,4 +113,20 @@ let displayTracks = function (res) {
     }
 };
 
+const controller = function () {
+    this.init = function () {
+        this.newPlaylistCreator()
+    };
+    this.newPlaylistCreator = function () {
+        var newListButton = document.querySelector('.new-playlist');
+        var playlistForm = document.querySelector('.playlist-form');
+        newListButton.addEventListener('click', function () {
+            playlistForm.style.display = 'inline-block';
+        })
+    };
+};
+
+const cont = new controller;
+cont.init();
+
 getPlaylists(displayPlaylists);
