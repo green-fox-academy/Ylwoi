@@ -27,6 +27,7 @@ connect.connect(function (err) {
 });
 
 const queryAllPlaylist = 'SELECT * FROM playlists';
+const queryAllTrack = 'SELECT * FROM tracks';
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
@@ -35,17 +36,21 @@ app.get('/', function (req, res) {
 app.get('/playlists', function (req, res) {
     connect.query(queryAllPlaylist, function (err, rows) {
         if (err) {
-            console.log('ERROR query', err)
+            console.log('ERROR in playlist query', err)
         } else {
-            var results = rows;
-            console.log(results);
-            res.send(results);
+            res.send(rows)
         }
     })
 });
 
 app.get('/playlist-tracks', function (req, res) {
-    res.send(tracklist)
+    connect.query(queryAllTrack, function (err, rows) {
+        if (err) {
+            console.log('ERROR in tracks query', err)
+        } else {
+            res.send(rows)
+        }
+    })
 });
 
 app.delete('/playlist-delete/:id', function (req, res) {
