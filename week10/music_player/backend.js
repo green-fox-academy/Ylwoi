@@ -34,8 +34,14 @@ app.get('/playlist-tracks', function (req, res) {
     res.send(tracklist)
 });
 
-app.delete('/playlist-delete', function (req, res) {
-
-})
+app.delete('/playlist-delete/:id', function (req, res) {
+    let idToDelete = parseInt(req.params.id);
+    for (let i = 0; i < playlists.length; i++) {
+        if (playlists[i].id === idToDelete) {
+            playlists.splice(i, 1);
+        }
+    }
+    res.send(playlists)
+});
 
 app.listen(3000);

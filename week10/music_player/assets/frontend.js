@@ -15,6 +15,17 @@ let getPlaylists = function (callback) {
     }
 };
 
+let deletePlaylist = function (id) {
+    xhr.open('DELETE', 'http://localhost:3000/playlist-delete/' + id, true);
+    xhr.send();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            displayPlaylists(xhr.response);
+            console.log(xhr.response)
+        }
+    }
+};
+
 let getTracks = function (callback) {
     xhr.open('GET', 'http://localhost:3000/playlist-tracks', true);
     xhr.send();
@@ -29,8 +40,10 @@ let displayPlaylists = function (res) {
     let respPlaylist = JSON.parse(res);
 
     let lengthPlaylists = respPlaylist.length;
+    var htmlPLaylists = document.querySelector('.playlists');
+    htmlPLaylists.innerHTML = '';
+
     for (let i = 0; i < lengthPlaylists; i++) {
-        var htmlPLaylists = document.querySelector('.playlists');
 
         let divPlaylist = document.createElement('div');
         divPlaylist.setAttribute('class', 'playlist new');
@@ -44,6 +57,10 @@ let displayPlaylists = function (res) {
         anchPlaylist.setAttribute('class', 'delete-list');
         if (respPlaylist[i].system === 0) {
             anchPlaylist.innerText = 'X';
+
+            anchPlaylist.addEventListener('click', function () {
+                deletePlaylist(respPlaylist[i].id)
+            })
         }
         divPlaylist.appendChild(anchPlaylist);
 
@@ -57,8 +74,10 @@ let displayTracks = function (res) {
     console.log(respTracks);
 
     let lengthTracks = respTracks.length;
+    var htmlTracks = document.querySelector('.tracks');
+    htmlTracks.innerHTML = '';
+
     for (let i = 0; i < lengthTracks; i++) {
-        var htmlTracks = document.querySelector('.tracks');
 
         let divTrack = document.createElement('div');
         divTrack.setAttribute('class', 'track');
