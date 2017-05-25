@@ -30,8 +30,8 @@ const queryAllPlaylist = 'SELECT * FROM playlists';
 const queryAllTrack = 'SELECT * FROM tracks';
 const deletePlaylist = 'DELETE FROM playlists WHERE id = ';
 
-const queryPlaylist = function (res) {
-    connect.query(queryAllPlaylist, function (err, rows) {
+const queryMaker = function (res, query) {
+    connect.query(query, function (err, rows) {
         if (err) {
             console.log('ERROR in playlist query', err)
         } else {
@@ -45,17 +45,11 @@ app.get('/', function (req, res) {
 });
 
 app.get('/playlists', function (req, res) {
-    queryPlaylist(res)
+    queryMaker(res, queryAllPlaylist);
 });
 
 app.get('/playlist-tracks', function (req, res) {
-    connect.query(queryAllTrack, function (err, rows) {
-        if (err) {
-            console.log('ERROR in tracks query', err)
-        } else {
-            res.send(rows)
-        }
-    })
+    queryMaker(res, queryAllTrack)
 });
 
 app.delete('/playlist-delete/:id', function (req, res) {
