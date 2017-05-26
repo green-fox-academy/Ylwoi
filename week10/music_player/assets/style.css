@@ -142,12 +142,30 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
+    overflow-y: hidden;
+}
+
+.tracks:hover {
+    overflow-y: scroll;
+}
+
+.tracks::-webkit-scrollbar {
+    width: 0.5vw;
+}
+
+.tracks::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.tracks::-webkit-scrollbar-thumb {
+    background-color: #F0F0F0;
+    outline: 1px solid #F0F0F0;
 }
 
 .track {
     display: flex;
     width: 100%;
-    height: 10%;
+    min-height: 10%;
     align-items: center;
     cursor: pointer;
 }
