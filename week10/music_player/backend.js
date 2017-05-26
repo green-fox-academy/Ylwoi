@@ -61,9 +61,7 @@ app.delete('/playlist-delete/:id', function (req, res) {
 });
 
 app.get('/new-playlist/:plname', function (req, res) {
-    console.log(req.params.plname);
     var playlistName = req.params.plname;
-    console.log(createPlaylist + playlistName + createPlaylistEnd);
     connect.query(createPlaylist + playlistName + createPlaylistEnd);
     queryMaker(res, queryAllPlaylist)
 

@@ -86,6 +86,8 @@ let displayTracks = function (res) {
 
     let lengthTracks = respTracks.length;
     var htmlTracks = document.querySelector('.tracks');
+    var playingSong = document.querySelector('.song');
+    var playingArtist = document.querySelector('.artist');
     htmlTracks.innerHTML = '';
 
     for (let i = 0; i < lengthTracks; i++) {
@@ -117,7 +119,8 @@ let displayTracks = function (res) {
             let audio = document.querySelector('audio');
             audio.setAttribute('src', respTracks[i].path);
             audio.play();
-
+            playingArtist.innerText = respTracks[i].artist;
+            playingSong.innerText = respTracks[i].title;
         });
 
         htmlTracks.appendChild(divTrack);
