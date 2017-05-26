@@ -47,6 +47,17 @@ let postNewPlaylist = function (callback, data) {
     }
 };
 
+const getPhoto = function (artist, callback) {
+    xhr.open('GET', 'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist='+ artist +'&api_key=ee125f318852fc7d1c2f4e21458a0035&format=json', true);
+    xhr.send();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            callback(xhr.response);
+        }
+    }
+
+};
+
 let displayPlaylists = function (res) {
     let respPlaylist = JSON.parse(res);
 
@@ -121,10 +132,23 @@ let displayTracks = function (res) {
             audio.play();
             playingArtist.innerText = respTracks[i].artist;
             playingSong.innerText = respTracks[i].title;
+            getPhoto(playingArtist.innerText, newCover);
         });
 
         htmlTracks.appendChild(divTrack);
     }
+};
+
+let newCover = function (res) {
+    var respLastFm = JSON.parse(res);
+    console.log(respLastFm);
+    var cover = document.querySelector('.cover');
+    var artist = document.querySelector('.artist').innerText;
+
+    if (artist !== '') {
+        cover.setAttribute('src', respLastFm.artist.image[2]['#text'])
+    }
+
 };
 
 const controller = function () {
