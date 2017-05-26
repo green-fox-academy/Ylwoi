@@ -70,7 +70,24 @@
     flex-direction: column;
     width: 100%;
     height: 60%;
+    overflow-y: hidden;
+}
+
+.playlists:hover {
     overflow-y: scroll;
+}
+
+.playlists::-webkit-scrollbar {
+    width: 0.5vw;
+}
+
+.playlists::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.playlists::-webkit-scrollbar-thumb {
+    background-color: #C6C6C6;
+    outline: 1px solid #C6C6C6;
 }
 
 .playlist {
