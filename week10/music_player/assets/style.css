@@ -158,8 +158,8 @@
 }
 
 .tracks::-webkit-scrollbar-thumb {
-    background-color: #F0F0F0;
-    outline: 1px solid #F0F0F0;
+    background-color: #C6C6C6;
+    outline: 1px solid #C6C6C6;
 }
 
 .track {
@@ -170,16 +170,23 @@
     cursor: pointer;
 }
 
-.track:hover {
-    background-color: #F0F0F0;
-}
-
 .track-num {
     margin: 0 3%;
 }
 
 .track-name {
     width: 80%;
+}
+
+@keyframes moving {
+    from {transform: translateX(-50px);}
+    to {transform: translateX(50px);}
+}
+
+.track-name:hover {
+    position: relative;
+    animation: moving 3s infinite;
+
 }
 
 .bottom {

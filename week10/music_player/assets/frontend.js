@@ -102,7 +102,7 @@ let displayTracks = function (res) {
 
         let nameTrack = document.createElement('p');
         nameTrack.setAttribute('class', 'track-name');
-        nameTrack.innerText = respTracks[i].artist;
+        nameTrack.innerText = respTracks[i].artist + ' - ' + respTracks[i].title;
         divTrack.appendChild(nameTrack);
 
         let timeTrack = document.createElement('p');
