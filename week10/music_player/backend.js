@@ -10,6 +10,7 @@ const app = express();
 
 app.use('/assets', express.static('assets'));
 app.use('/media', express.static('media'));
+app.use('/music', express.static('music'));
 
 const connect = mysql.createConnection({
     host: 'localhost',
