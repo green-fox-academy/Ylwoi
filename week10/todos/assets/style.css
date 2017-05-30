@@ -10,13 +10,25 @@ body {
     height: 80vh;
     margin: auto;
     align-items: center;
+    border-radius: 20px;
 }
 
 .new-todo {
-    background-color: #643579;
     display: flex;
     width: 40vw;
     height: 8vh;
-    justify-content: center;
+    justify-content: space-between;
 }
 
+input {
+    width: 80%;
+    border: red;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #f2f062;
+    font-weight: 900;
+    border: black;
+    border-radius: 5px;
+}
