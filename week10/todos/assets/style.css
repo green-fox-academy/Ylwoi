@@ -32,6 +32,7 @@ button {
     font-weight: 900;
     border: black;
     border-radius: 5px;
+    width: 5vw;
 }
 
 .todos {
