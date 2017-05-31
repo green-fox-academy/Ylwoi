@@ -26,9 +26,20 @@ dbConn.connect(function (err) {
     }
 });
 
+const queryAllTodo = 'SELECT * FROM todos';
+
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html')
 });
 
+app.get('/todos', function (req, res) {
+    dbConn.query(queryAllTodo, function (err, rows) {
+        if (err) {
+            console.log('ERROR in all todo query')
+        } else {
+            res.send(rows)
+        }
+    })
+});
 
 app.listen(3000);
