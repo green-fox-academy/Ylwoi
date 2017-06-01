@@ -35,7 +35,15 @@ let newTodo = function (todoText) {
     }
 };
 
-
+let completeTodo = function (id) {
+    xhr.open('PUT', 'http://localhost:3000/complete/' + id, true);
+    xhr.send();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            displayAllTodo(xhr.response)
+        }
+    }
+};
 
 let displayAllTodo = function (res) {
     let respAllTodo = JSON.parse(res);
