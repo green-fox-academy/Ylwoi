@@ -93,6 +93,7 @@ const controller = function () {
             if (data != '') {
                 newTodo(data)
             }
+            input.value = '';
         })
     }
 };
