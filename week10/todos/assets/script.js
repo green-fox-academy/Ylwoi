@@ -35,8 +35,8 @@ let newTodo = function (todoText) {
     }
 };
 
-let completeTodo = function (id) {
-    xhr.open('PUT', 'http://localhost:3000/complete/' + id, true);
+let completeTodo = function (id, completed) {
+    xhr.open('PUT', 'http://localhost:3000/complete/' + id + '/' + completed, true);
     xhr.send();
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {

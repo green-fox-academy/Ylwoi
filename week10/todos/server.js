@@ -30,6 +30,8 @@ const queryAllTodo = 'SELECT * FROM todos';
 const queryDeleteTodo = 'DELETE FROM todos WHERE id = ';
 const addNewTodo = 'INSERT INTO todos VALUES (NULL, "';
 const addNewTodoEnd = '", 0);';
+const updateTodo = 'UPDATE todos SET completed = ';
+const updateTodo2 = ' WHERE id = "';
 
 const makeQuery = function (query, res) {
     dbConn.query(query, function (err, rows) {
@@ -58,6 +60,14 @@ app.delete('/delete/:id', function (req, res) {
 app.get('/addTodo/:todoText', function (req, res) {
     let todoText = req.params.todoText;
     dbConn.query(addNewTodo + todoText + addNewTodoEnd);
+    makeQuery(queryAllTodo, res)
+});
+
+app.get('/complete/:id/:completed', function (req, res) {
+    let idToComplete = req.params.id;
+    let completed = req.params.completed;
+    let data = (completed == 0) ? 1 : 0;
+    dbConn.query(updateTodo + data + updateTodo2 + idToComplete + '";');
     makeQuery(queryAllTodo, res)
 });
 
