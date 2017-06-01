@@ -36,7 +36,7 @@ let newTodo = function (todoText) {
 };
 
 let completeTodo = function (id, completed) {
-    xhr.open('PUT', 'http://localhost:3000/complete/' + id + '/' + completed, true);
+    xhr.open('GET', 'http://localhost:3000/complete/' + id + '/' + completed, true);
     xhr.send();
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -69,6 +69,7 @@ let displayAllTodo = function (res) {
         imgDelete.setAttribute('class', 'delete');
         imgDelete.setAttribute('src', 'img/delete.svg');
         divButtons.appendChild(imgDelete);
+
         imgDelete.addEventListener('click', function () {
             deleteTodo(respAllTodo[i].id)
         });
@@ -81,6 +82,10 @@ let displayAllTodo = function (res) {
             imgCheck.setAttribute('src', 'img/unchecked.svg')
         }
         divButtons.appendChild(imgCheck);
+
+        imgCheck.addEventListener('click', function () {
+            completeTodo(respAllTodo[i].id, respAllTodo[i].completed)
+        });
 
         divTodo.appendChild(divButtons);
         htmlTodos.appendChild(divTodo);
