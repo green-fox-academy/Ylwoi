@@ -21,13 +21,13 @@ let displayAllTodo = function (res) {
     let respAllTodo = JSON.parse(res);
 
     let lengthTodos = respAllTodo.length;
-    let htmlTodos = document.querySelector('.todos');
+    let htmlTodos = document.querySelector('.allTodo');
     htmlTodos.innerHTML = '';
 
     for (let i = 0; i < lengthTodos; i++) {
 
         let divTodo = document.createElement('div');
-        divTodo.setAttribute('class', 'Todo');
+        divTodo.setAttribute('class', 'todo');
 
         let aTodoName = document.createElement('a');
         aTodoName.setAttribute('class', 'todo-name');

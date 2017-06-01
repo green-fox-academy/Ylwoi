@@ -35,30 +35,45 @@ button {
     width: 5vw;
 }
 
-.todos {
+.allTodo {
     display: flex;
     flex-direction: column;
     width: 40vw;
     height: 60vh;
     font-size: 4vh;
-    overflow-y: scroll;
 }
 
 .todo {
     display: flex;
+    height: 4vh;
+    width: 40vw;
     justify-content: space-between;
-    align-items: center;
-    height: 6vh;
-    width: 100%;
     border: 2px solid black;
+    border-radius: 10px;
+    padding: 4px;
+    margin-bottom: 1vh;
+}
+
+.todo:hover {
+    background-color: #f2f062;
+}
+
+.todo-name {
+    height: 4vh;
+    width: 30vw;
 }
 
 .todo-buttons {
     display: flex;
-    height: 6vh;
-    justify-content: flex-end;
+    height: 4vh;
+    width: 8vw;
 }
 
-.check {
-    min-height: 8vh;
+.delete, .check {
+    width: 4vw;
+    height: 4vh;
+}
+
+.delete, .check, .todo-name:hover {
+    cursor: pointer;
 }
