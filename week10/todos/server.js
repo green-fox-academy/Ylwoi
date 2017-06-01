@@ -28,8 +28,8 @@ dbConn.connect(function (err) {
 
 const queryAllTodo = 'SELECT * FROM todos';
 const queryDeleteTodo = 'DELETE FROM todos WHERE id = ';
-const addNewTodo = "INSERT INTO todos VALUES (NULL, '";
-const addNewTodoEnd = "', 0);";
+const addNewTodo = 'INSERT INTO todos VALUES (NULL, "';
+const addNewTodoEnd = '", 0);';
 
 const makeQuery = function (query, res) {
     dbConn.query(query, function (err, rows) {
