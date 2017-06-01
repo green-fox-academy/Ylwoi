@@ -27,6 +27,7 @@ dbConn.connect(function (err) {
 });
 
 const queryAllTodo = 'SELECT * FROM todos';
+const queryDeleteTodo = 'DELETE FROM todos WHERE id = ';
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html')
@@ -36,6 +37,17 @@ app.get('/todos', function (req, res) {
     dbConn.query(queryAllTodo, function (err, rows) {
         if (err) {
             console.log('ERROR in all todo query')
+        } else {
+            res.send(rows)
+        }
+    })
+});
+
+app.delete('/delete/:id', function (req, res) {
+    let idToDelete = req.params.id;
+    dbConn.query(queryDeleteTodo + idToDelete + ';', function (err, rows) {
+        if (err) {
+            console.log('ERROR in delete query')
         } else {
             res.send(rows)
         }
