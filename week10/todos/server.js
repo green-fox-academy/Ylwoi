@@ -31,7 +31,7 @@ const queryDeleteTodo = 'DELETE FROM todos WHERE id = ';
 const addNewTodo = "INSERT INTO todos VALUES (NULL, '";
 const addNewTodoEnd = "', 0);";
 
-const makeQuery = function (query) {
+const makeQuery = function (query, res) {
     dbConn.query(query, function (err, rows) {
         if (err) {
             console.log('ERROR in all todo query')
@@ -46,19 +46,19 @@ app.get('/', function (req, res) {
 });
 
 app.get('/todos', function (req, res) {
-    makeQuery(queryAllTodo)
+    makeQuery(queryAllTodo, res)
 });
 
 app.delete('/delete/:id', function (req, res) {
     let idToDelete = req.params.id;
     dbConn.query(queryDeleteTodo + idToDelete + ';');
-    makeQuery(queryAllTodo)
+    makeQuery(queryAllTodo, res)
 });
 
 app.get('/addTodo/:todoText', function (req, res) {
     let todoText = req.params.todoText;
     dbConn.query(addNewTodo + todoText + addNewTodoEnd);
-    makeQuery(queryAllTodo)
+    makeQuery(queryAllTodo, res)
 });
 
 app.listen(3000);
