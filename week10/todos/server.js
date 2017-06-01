@@ -31,41 +31,34 @@ const queryDeleteTodo = 'DELETE FROM todos WHERE id = ';
 const addNewTodo = "INSERT INTO todos VALUES (NULL, '";
 const addNewTodoEnd = "', 0);";
 
+const makeQuery = function (query) {
+    dbConn.query(query, function (err, rows) {
+        if (err) {
+            console.log('ERROR in all todo query')
+        } else {
+            res.send(rows)
+        }
+    })
+};
+
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html')
 });
 
 app.get('/todos', function (req, res) {
-    dbConn.query(queryAllTodo, function (err, rows) {
-        if (err) {
-            console.log('ERROR in all todo query')
-        } else {
-            res.send(rows)
-        }
-    })
+    makeQuery(queryAllTodo)
 });
 
 app.delete('/delete/:id', function (req, res) {
     let idToDelete = req.params.id;
-    dbConn.query(queryDeleteTodo + idToDelete + ';', function (err, rows) {
-        if (err) {
-            console.log('ERROR in delete query')
-        } else {
-            res.send(rows)
-        }
-    })
+    dbConn.query(queryDeleteTodo + idToDelete + ';');
+    makeQuery(queryAllTodo)
 });
 
 app.get('/addTodo/:todoText', function (req, res) {
     let todoText = req.params.todoText;
     dbConn.query(addNewTodo + todoText + addNewTodoEnd);
-    dbConn.query(queryAllTodo, function (err, rows) {
-        if (err) {
-            console.log('ERROR in all todo query')
-        } else {
-            res.send(rows)
-        }
-    })
+    makeQuery(queryAllTodo)
 });
 
 app.listen(3000);
