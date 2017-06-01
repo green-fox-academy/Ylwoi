@@ -9,8 +9,18 @@ let getTodo = function (callback) {
     xhr.open('GET', 'http://localhost:3000/todos', true);
     xhr.send();
     xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
+        if (xhr.readyState === 4 && xhr.status === 200) {
             callback(xhr.response)
+        }
+    }
+};
+
+let deleteTodo = function (id) {
+    xhr.open('DELETE', 'http://localhost:3000/delete' + id, true);
+    shr.send();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            displayAllTodo(xhr.response)
         }
     }
 };
