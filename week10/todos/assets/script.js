@@ -26,7 +26,7 @@ let deleteTodo = function (id) {
 };
 
 let newTodo = function (todoText) {
-    xhr.open('POST', 'http://localhost:3000/addTodo/' + todoText, true);
+    xhr.open('GET', 'http://localhost:3000/addTodo/' + todoText, true);
     xhr.send();
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -79,22 +79,26 @@ let displayAllTodo = function (res) {
     }
 };
 
-class Controller {
-    constructor () {
+const controller = function () {
+    this.init = function () {
+        this.addTodo()
+    };
 
-    }
-
-    addTodo () {
+    this.addTodo = function () {
         let input = document.querySelector('input');
         let button = document.querySelector('button');
 
         button.addEventListener('click', function () {
-            if (input.value != '') {
-                newTodo(input.value)
+            let data = input.value;
+            if (data != '') {
+                newTodo(data)
             }
         })
     }
-}
+};
+
+const cont = new controller;
+cont.init();
 
 
 getTodo(displayAllTodo);

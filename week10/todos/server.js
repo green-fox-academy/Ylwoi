@@ -29,7 +29,7 @@ dbConn.connect(function (err) {
 const queryAllTodo = 'SELECT * FROM todos';
 const queryDeleteTodo = 'DELETE FROM todos WHERE id = ';
 const addNewTodo = "INSERT INTO todos VALUES (NULL, '";
-const addNewTodoEnd = "', NULL;";
+const addNewTodoEnd = "', 0);";
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html')
