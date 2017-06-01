@@ -79,5 +79,22 @@ let displayAllTodo = function (res) {
     }
 };
 
+class Controller {
+    constructor () {
+
+    }
+
+    addTodo () {
+        let input = document.querySelector('input');
+        let button = document.querySelector('button');
+
+        button.addEventListener('click', function () {
+            if (input.value != '') {
+                newTodo(input.value)
+            }
+        })
+    }
+}
+
 
 getTodo(displayAllTodo);
