@@ -25,6 +25,16 @@ let deleteTodo = function (id) {
     }
 };
 
+let newTodo = function (todoText) {
+    xhr.open('POST', 'http://localhost:3000/addTodo/' + todoText, true);
+    xhr.send();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            displayAllTodo(xhr.response)
+        }
+    }
+};
+
 
 
 let displayAllTodo = function (res) {
