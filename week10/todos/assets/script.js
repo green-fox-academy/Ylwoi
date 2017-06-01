@@ -16,8 +16,8 @@ let getTodo = function (callback) {
 };
 
 let deleteTodo = function (id) {
-    xhr.open('DELETE', 'http://localhost:3000/delete' + id, true);
-    shr.send();
+    xhr.open('DELETE', 'http://localhost:3000/delete/' + id, true);
+    xhr.send();
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             displayAllTodo(xhr.response)
@@ -51,6 +51,9 @@ let displayAllTodo = function (res) {
         imgDelete.setAttribute('class', 'delete');
         imgDelete.setAttribute('src', 'img/delete.svg');
         divButtons.appendChild(imgDelete);
+        imgDelete.addEventListener('click', function () {
+            deleteTodo(respAllTodo[i].id)
+        });
 
         let imgCheck = document.createElement('img');
         imgCheck.setAttribute('class', 'check');
