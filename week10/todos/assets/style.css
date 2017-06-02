@@ -40,13 +40,31 @@ button {
     flex-direction: column;
     width: 40vw;
     height: 60vh;
+    margin-bottom: 5.2vh;
     font-size: 4vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.allTodo:hover {
+    overflow-y: scroll;
+}
+
+.allTodo::-webkit-scrollbar {
+    width: 1vw;
+    background: black;
+    border-radius: 10px;
+}
+
+.allTodo::-webkit-scrollbar-thumb {
+    background-color: #f2f062;
+    border-radius: 10px;
 }
 
 .todo {
     display: flex;
-    height: 4vh;
-    width: 40vw;
+    min-height: 4vh;
+    width: 36vw;
     justify-content: space-between;
     border: 2px solid black;
     border-radius: 10px;
@@ -65,6 +83,7 @@ button {
 
 .todo-buttons {
     display: flex;
+    justify-content: space-around;
     height: 4vh;
     width: 8vw;
 }
@@ -74,6 +93,6 @@ button {
     height: 4vh;
 }
 
-.delete, .check, .todo-name:hover {
+.delete, .check, .todo-name, button:hover {
     cursor: pointer;
 }
