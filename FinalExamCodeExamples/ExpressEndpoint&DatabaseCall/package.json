@@ -1,0 +1,15 @@
+{
+  "name": "final_exam_example",
+  "version": "1.0.0",
+  "description": "Code example for Express endpoint and database call",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ylwoi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3",
+    "mysql": "^2.13.0"
+  }
+}
