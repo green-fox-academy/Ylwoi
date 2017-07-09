@@ -1,0 +1,14 @@
+{
+  "name": "unit_test",
+  "version": "1.0.0",
+  "description": "code example of unit test fot final exam",
+  "main": "scriptTest.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ylwoi",
+  "license": "ISC",
+  "dependencies": {
+    "tape": "^4.7.0"
+  }
+}
