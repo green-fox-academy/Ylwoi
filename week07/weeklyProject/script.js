@@ -66,6 +66,10 @@ function thumbnails() {
     }
 }
 
+function clickThumbnails(e) {
+    image.setAttribute('src',e.getAttribute('src'));
+}
+
 function slideLeft() {
     if (index > 0) {
         index--;
@@ -88,3 +92,7 @@ function slideRight() {
 
 leftButton.addEventListener('click',slideLeft);
 rightButton.addEventListener('click',slideRight);
+
+thumbs.forEach(function(e) {
+    e.addEventListener('click', clickThumbnails(e));
+});
