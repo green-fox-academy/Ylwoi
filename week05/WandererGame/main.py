@@ -2,21 +2,23 @@ __author__ = 'ylwoi'
 
 from tkinter import *
 import time
+import random
 
 
 class Map(object):
     def __init__(self):
         self.floor_pic = PhotoImage(file='assets\Floor.png')
         self.wall_pic = PhotoImage(file='assets\wall.png')
-        self.wall_matrix = [
-            [3, 5], [3, 5, 7, 8], [1, 2, 3, 5, 7, 8], [5], [0, 1, 2, 3, 5, 6, 7, 8],
-            [1, 3, 8], [1, 3, 5, 6, 8], [5, 6, 8], [1, 2, 3, 8], [3, 5, 6, 8], [1, 3, 5]
-        ]
+        self.wall_matrix = self.read_maps('map1.txt')
+
+    def read_maps(self, text_file):
+        self.game_map = open(text_file, mode='r')
+        return list(list(map(int, line.split(','))) for line in self.game_map)
 
     def draw_floor(self):
-        for draw_row in range(10):
-            for draw_column in range(11):
-                logic.draw_tile(draw_row, draw_column, self.floor_pic)
+        for draw_column in range(10):
+            for draw_row in range(11):
+                logic.draw_tile(draw_column, draw_row, self.floor_pic)
 
     def draw_wall(self):
         for i in self.wall_matrix:
@@ -29,7 +31,7 @@ class GameLogic():
         canvas.bind("<KeyPress>", self.on_key_press)
 
     def draw_tile(self, x, y, picture):
-        self.tile = canvas.create_image((x+0.5)*72, (y+0.5)*72, image=picture)
+        return canvas.create_image((x+0.5)*72, (y+0.5)*72, image=picture)
 
     def move_control(self, x, y):
         self.x = x
@@ -46,34 +48,39 @@ class GameLogic():
 
     def on_key_press(self, e):
         self.e = e
-        canvas.delete(logic.tile)
+        self.count = 1
+        canvas.delete(hero.dh)
         if self.e.keysym == 'Up':
+            self.count += 1
             if logic.move_control(hero.heroX, hero.heroY-1) == True:
                 hero.heroY = hero.heroY - 1
-                logic.draw_tile(hero.heroX, hero.heroY, hero.hero_pic_up)
+                hero.draw_hero(hero.hero_pic_up)
             else:
-                logic.draw_tile(hero.heroX, hero.heroY, hero.hero_pic_up)
+                hero.draw_hero(hero.hero_pic_down)
 
         elif self.e.keysym == 'Down':
+            self.count += 1
             if logic.move_control(hero.heroX, hero.heroY+1) == True:
                 hero.heroY = hero.heroY + 1
-                logic.draw_tile(hero.heroX, hero.heroY, hero.hero_pic_down)
+                hero.draw_hero(hero.hero_pic_down)
             else:
-                logic.draw_tile(hero.heroX, hero.heroY, hero.hero_pic_down)
+                hero.draw_hero(hero.hero_pic_up)
 
         elif self.e.keysym == 'Left':
+            self.count += 1
             if logic.move_control(hero.heroX-1, hero.heroY) == True:
                 hero.heroX = hero.heroX - 1
-                logic.draw_tile(hero.heroX, hero.heroY, hero.hero_pic_left)
+                hero.draw_hero(hero.hero_pic_left)
             else:
-                logic.draw_tile(hero.heroX, hero.heroY, hero.hero_pic_left)
+                hero.draw_hero(hero.hero_pic_right)
 
         elif self.e.keysym == 'Right':
+            self.count += 1
             if logic.move_control(hero.heroX+1, hero.heroY) == True:
                 hero.heroX = hero.heroX + 1
-                logic.draw_tile(hero.heroX, hero.heroY, hero.hero_pic_right)
+                hero.draw_hero(hero.hero_pic_right)
             else:
-                logic.draw_tile(hero.heroX, hero.heroY, hero.hero_pic_right)
+                hero.draw_hero(hero.hero_pic_left)
 
 
 class Hero():
@@ -84,19 +91,51 @@ class Hero():
         self.hero_pic_up = PhotoImage(file='assets\hero-up.png')
         self.hero_pic_left = PhotoImage(file='assets\hero-left.png')
         self.hero_pic_right = PhotoImage(file='assets\hero-right.png')
+        self.dh = None
 
-    def draw_hero(self):
-        logic.draw_tile(self.heroX, self.heroY, self.hero_pic_down)
+    def draw_hero(self, hero_pic):
+        self.dh = logic.draw_tile(self.heroX, self.heroY, hero_pic)
 
 
-class Skeleton():
+class Skeleton(GameLogic):
     def __init__(self, x, y):
         self.skeleton_pic = PhotoImage(file='assets\skeleton.png')
         self.skeletonX = x
         self.skeletonY = y
+        self.ds = None
 
     def draw_skeleton(self):
         self.ds = logic.draw_tile(self.skeletonX, self.skeletonY, self.skeleton_pic)
+
+    """def skeleton_move(self, x_or_y, start, stop):
+        if x_or_y == 'y':
+            while self.skeletonY < stop:
+                canvas.delete(self.ds)
+                self.skeletonY += 0.1
+                self.draw_skeleton()
+                time.sleep(0.1)
+                canvas.update()
+                if self.skeletonY > stop-1:
+                    while self.skeletonY > start:
+                        canvas.delete(self.ds)
+                        self.skeletonY -= 0.1
+                        self.draw_skeleton()
+                        time.sleep(0.1)
+                        canvas.update()
+        if x_or_y == 'x':
+            while self.skeletonX < stop:
+                canvas.delete(self.ds)
+                self.skeletonX += 0.1
+                self.draw_skeleton()
+                time.sleep(0.1)
+                canvas.update()
+                if self.skeletonX > stop-1:
+                    while self.skeletonX > start:
+                        canvas.delete(self.ds)
+                        self.skeletonX -= 0.1
+                        self.draw_skeleton()
+                        time.sleep(0.1)
+                        canvas.update()"""
 
 
 root = Tk()
@@ -105,16 +144,19 @@ canvas = Canvas(root, width=720, height=792)
 game_map = Map()
 hero = Hero()
 logic = GameLogic()
-skel_1 = Skeleton(4, 1)
+skel_1 = Skeleton(4, 0)
+skel_2 = Skeleton(0, 7)
 
 canvas.pack()
 canvas.focus_set()
 
 game_map.draw_floor()
 game_map.draw_wall()
-hero.draw_hero()
+hero.draw_hero(hero.hero_pic_down)
+skel_1.draw_skeleton()
+skel_2.draw_skeleton()
 
-#logic.skeleton_move(skel_1)
+#skel_1.skeleton_move('y', 1, 6)
+#skel_2.skeleton_move('x', 1, 4)
 
 root.mainloop()
-

@@ -89,4 +89,10 @@ app.post('/dountil/:operation/', function (req, res) {
     }
 });
 
+app.post('/arrays', function (req, res) {
+    var what = req.body.what;
+    var numbers = req.body.numbers;
+
+});
+
 app.listen(8080);

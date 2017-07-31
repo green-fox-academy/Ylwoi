@@ -45,10 +45,15 @@
 }
 
 .button {
-    padding: 20px 0;
+    padding: 1vh 0;
     font-size: 3.5vh;
     text-decoration: none;
     color: #aaaaaa;
+}
+
+hr {
+    width: 50%;
+    border-top: 1px double white;
 }
 
 .button:hover {
@@ -81,5 +86,22 @@
     height: 100%;
     background-image: url("img/home.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 87vw 100vh;
+
+}
+
+.main_home > h1, span {
+    font-family: 'Lobster', cursive;
+    color: white;
+    padding: 20px;
+}
+
+.main_home > h1 {
+    font-size: 6vw;
+    padding-bottom: 5px;
+}
+
+.main_home > span {
+    font-size: 2vw;
+    text-decoration:overline underline;
 }

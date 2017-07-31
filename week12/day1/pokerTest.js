@@ -13,6 +13,12 @@ test('No same cards', function (t) {
 });
 
 test('High card wins', function (t) {
-    t.equal(poker.comparer('Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C AH'), 'White wins. - with high card: Ace ');
+    t.equal(poker.comparer('Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C AH'), 'White wins. - with high card: Ace');
+    t.equal(poker.comparer('Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C QH'), 'Black wins. - with high card: King');
+    t.end();
+});
+
+test('Equal cards', function (t) {
+    t.equal(poker.comparer('Black: 2H 3D 4H 8S AD  White: 2C 3H 4S 8C AH'), 'Tie.');
     t.end();
 });

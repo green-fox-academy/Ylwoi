@@ -3,19 +3,75 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="main">
-        <h2>Profil</h2>
-        <div class="personal">
-
-        </div>
-        <div class="contact">
-
+        <h1>Profil</h1>
+        <div class="datas">
+            <div class="personal">
+                <h2>Szemelyes adatok</h2>
+                <div class="name">
+                    <label>Nev <span>*</span> <br></label>
+                    <input type="text">
+                </div>
+                <div class="agesex">
+                    <div class="age">
+                        <label>Szuletesi eved</label>
+                        <input type= datetime>
+                    </div>
+                    <div class="gender">
+                    <label>Nemed</label>
+                        <div class="sex">
+                            <input type="radio">Ferfi
+                            <input type="radio">No
+                        </div>
+                    </div>
+                </div>
+                <div class="brand">
+                    <label>Milyen markat szeretsz?</label>
+                    <div class="brand_checker">
+                        <input type="checkbox">Adidas
+                        <input type="checkbox">Opel
+                        <input type="checkbox">Apple
+                        <input type="checkbox">Ray-Ban
+                        <input type="checkbox">Coca-Cola
+                        <input type="checkbox">Starbucks
+                        <input type="checkbox">Mazda
+                        <input type="checkbox">Tesla
+                        <input type="checkbox">Nike
+                        <input type="checkbox">Yahoo
+                    </div>
+                </div>
+            </div>
+            <div class="contact">
+                <h2>Kapcsolat</h2>
+                <div class="phone">
+                    <label>Telefonszam <span>*</span> <br></label>
+                    <input type="tel">
+                </div>
+                 <div class="email">
+                    <label>E-mail cim <span>*</span> <br></label>
+                    <input type="email">
+                </div>
+                 <div class="facebook">
+                    <label>Facebook profilod<br></label>
+                    <input type="url">
+                </div>
+                 <div class="twitter">
+                    <label>Twitter profilod<br></label>
+                    <input type="url">
+                </div>
+                <div class="house">
+                    <label>Milyen hazban laksz?<br></label>
+                    <select>
+                </div>
+            </div>
         </div>
         <div class="intro">
-
+            <label>Bemutatkozas<span>*</span></label>
+            <input type="text">
         </div>
         <div class="cv">
 
